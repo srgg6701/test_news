@@ -32,7 +32,14 @@ html, body {
   padding: 0;
 }
 
-/* line 37, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 42, ../sass/screen.scss */
 #nav,
 div[role="main"],
 #footer {
@@ -41,43 +48,43 @@ div[role="main"],
   min-width: 640px;
 }
 
-/* line 40, ../sass/screen.scss */
-#container * {
-  box-sizing: border-box;
+/* line 45, ../sass/screen.scss */
+#container {
+  height: 100%;
 }
 
-/* line 43, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 section {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 46, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 nav {
   margin: auto -10px;
   padding: 10px;
 }
 
-/* line 50, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 footer {
   background-color: #efefef;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 #footer {
   height: 60px;
   line-height: 60px;
   padding: 0 10px;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 #main {
   min-height: 100%;
   margin-bottom: -60px;
   padding: 0 10px 60px;
 }
 
-/* line 63, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 nav {
   background-color: #eaebec;
 }
