@@ -19,11 +19,20 @@
   display: inline-block;
   @include padding;
 }
+.bg-lightskyblue{
+  background-color: lightskyblue;
+}
 .clearfix{
   @include clearfix;
 }
 .floatLeft{
   float: left;
+}
+.marginRight10{
+  margin-right: 10px;
+}
+.padding10{
+  @include padding;
 }
 /* styles */
 html, body{
@@ -37,20 +46,8 @@ html, body{
   margin: 0;
   padding: 0;
 }
-#nav,
-div[role="main"],
-#footer{
-  @include common_space;
-}
 #container {
   height: 100%;
-}
-section{
-  @include offsetVertical;
-}
-nav{
-  margin:auto -10px;
-  @include padding;
 }
 footer{
   background-color:#efefef;
@@ -60,12 +57,24 @@ footer{
   line-height:60px;
   padding:0 10px;
 }
-#main{
-  min-height:100%;
-  margin-bottom:-60px;
-  padding:0 10px 60px;
+#footer,
+#nav,
+div[role="main"]
+{
+  @include common_space;
 }
 nav{
+  margin:auto -10px;
+  @include padding;
+}#main{
+   min-height:100%;
+   margin-bottom:-60px;
+   padding:0 10px 60px;
+ }
+nav{
   background-color: #eaebec;
+}
+section{
+  @include offsetVertical;
 }
 
