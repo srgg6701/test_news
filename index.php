@@ -5,8 +5,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/.css">
-        <script src="/.js"></script>       
+        <link rel="stylesheet" href="stylesheet/screen.css">
+        <script src="js/common.js"></script>
+        <script src="js/jquery-2.1.0.min.js"></script>
 <!-- move styles to a separated file -->
 <style>
 html, body{
