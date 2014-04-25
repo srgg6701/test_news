@@ -5,8 +5,9 @@
 }
 @mixin common_space{
   margin:auto !important;
-  max-width:90%;
-  min-width:640px;
+  max-width: 1000px;
+  min-width: 640px;
+  width: 100%;
 }
 @mixin offsetVertical($offset:10px){
   padding-top:$offset;
@@ -63,18 +64,23 @@ div[role="main"]
 {
   @include common_space;
 }
+h1, h2, h3, h4{
+  padding: 10px 0;
+}
 nav{
+  background-color: #eaebec;
   margin:auto -10px;
   @include padding;
-}#main{
+}
+#main{
    min-height:100%;
    margin-bottom:-60px;
    padding:0 10px 60px;
  }
-nav{
-  background-color: #eaebec;
-}
 section{
   @include offsetVertical;
+}
+nav, fieldset, legend div{
+  @include padding;
 }
 

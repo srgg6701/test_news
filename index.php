@@ -10,15 +10,15 @@ ob_clean();
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="stylesheets/screen.css">
-        <script src="js/common.js"></script>
-        <script src="js/jquery-2.1.0.min.js"></script>
+        <link rel="stylesheet" href="<?php echo SITE_ROOT; ?>/stylesheets/screen.css">
+        <script src="<?php echo SITE_ROOT; ?>/js/common.js"></script>
+        <script src="<?php echo SITE_ROOT; ?>/js/jquery-2.1.0.min.js"></script>
     </head>
     <body>
     	<div id="container">
         	<div id="main">
             	<nav>
-                	<div id="nav"><a href="<?php echo $root?>">Главная</a></div>
+                	<div id="nav"><a href="<?php echo SITE_ROOT; ?>">Главная</a></div>
                 </nav>
                 <div role="main">
                 	<section>
