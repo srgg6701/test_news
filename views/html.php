@@ -18,4 +18,8 @@ class HTML{
             <a href="<?php echo SITE_ROOT;?>/admin/<?php echo $link;?>"><?php echo $next?></a></div>
         </legend><?php
     }
-}?>
+
+    static function Menu(){
+        ?><a href="<?php echo SITE_ROOT; ?>">Главная</a><?php
+    }
+}

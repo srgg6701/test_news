@@ -17,5 +17,4 @@ if(!class_exists($controller_name)){
     $action = (isset($location[1]))? $location[1]:NULL;
     // создать экземпляр активного контроллера и передать текущий action
     $controller = new $controller_name($action); //var_dump("<pre>",$controller,"<pre/>");
-    require_once "controllers/".$section.".php";
 }

@@ -16,7 +16,15 @@ class defaultController{
 }
 class userController{
     function __construct($action=NULL){
-        echo "<div>Hello! I am the ".__CLASS__." constructor!</div>";
+        //echo "<div>Hello! I am the ".__CLASS__." constructor!</div>";
+        $view = new View();
+        echo "<hr>".SITE_ROOT."<hr>";
+        if(!method_exists($view,$action))
+            require_once "views/404.php";
+        else {
+            $view->$action();
+            require_once "views/".$action.".php";
+        }
     }
 }
 class adminController{

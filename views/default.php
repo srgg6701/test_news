@@ -3,8 +3,8 @@
 ?><section class="clearfix">
     <div class="floatLeft padding10 marginRight10 bg-lightskyblue">
         <h3>Чтение новостей</h3>
-        <select>
-            <option>-Выберите регион-</option>
+        <select id="select_city">
+            <option value="0">-Выберите регион-</option>
             <?php echo $this->citiesList;?>
         </select>
     </div>

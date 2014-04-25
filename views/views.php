@@ -21,4 +21,8 @@ class View{
     function listing(){
 
     }
+
+    function news(){
+
+    }
 }

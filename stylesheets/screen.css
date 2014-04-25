@@ -1,6 +1,6 @@
 /* mixins */
 /* classes */
-/* line 17, ../sass/screen.scss */
+/* line 20, ../sass/screen.scss */
 .alert {
   background-color: #ffdada;
   -webkit-border-radius: 6px;
@@ -12,34 +12,34 @@
   padding: 10px;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 .bg-lightskyblue {
   background-color: lightskyblue;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 29, ../sass/screen.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 29, ../sass/screen.scss */
+/* line 32, ../sass/screen.scss */
 .floatLeft {
   float: left;
 }
 
-/* line 32, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 .marginRight10 {
   margin-right: 10px;
 }
 
-/* line 35, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
 .padding10 {
   padding: 10px;
 }
 
 /* styles */
-/* line 39, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
@@ -47,31 +47,36 @@ html, body {
   padding: 0;
 }
 
-/* line 45, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* line 50, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 #container {
   height: 100%;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
+fieldset {
+  border: solid 2px #cccccc;
+}
+
+/* line 59, ../sass/screen.scss */
 footer {
   background-color: #efefef;
 }
 
-/* line 56, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 #footer {
   height: 60px;
   line-height: 60px;
   padding: 0 10px;
 }
 
-/* line 64, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 #footer,
 #nav,
 div[role="main"] {
@@ -81,32 +86,37 @@ div[role="main"] {
   width: 100%;
 }
 
-/* line 67, ../sass/screen.scss */
+/* line 73, ../sass/screen.scss */
 h1, h2, h3, h4 {
   padding: 10px 0;
 }
 
-/* line 70, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
+legend {
+  border: solid 1px #cccccc;
+}
+
+/* line 79, ../sass/screen.scss */
 nav {
   background-color: #eaebec;
   margin: auto -10px;
   padding: 10px;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 #main {
   min-height: 100%;
   margin-bottom: -60px;
   padding: 0 10px 60px;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 section {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 nav, fieldset, legend div {
   padding: 10px;
 }
