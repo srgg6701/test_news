@@ -14,7 +14,12 @@ ob_start();
 if(!class_exists($controller_name)){
     require "views/404.php";
 }else{
-    $action = (isset($location[1]))? $location[1]:NULL;
+    // /site_name/action/
+    $action     = (isset($location[1]))? $location[1]:NULL;
+    // /site_name/action/reaction/
+    $reaction   = (isset($location[2]))? $location[2]:NULL;
+    // /site_name/action/reaction/segment - id новости
+    $segment    = (isset($location[3]))? $location[3]:NULL;
     // создать экземпляр активного контроллера и передать текущий action
-    $controller = new $controller_name($action); //var_dump("<pre>",$controller,"<pre/>");
+    $controller = new $controller_name(array($action, $reaction, $segment)); //var_dump("<pre>",$controller,"<pre/>");
 }

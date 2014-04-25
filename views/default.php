@@ -5,7 +5,7 @@
         <h3>Чтение новостей</h3>
         <select id="select_city">
             <option value="0">-Выберите регион-</option>
-            <?php echo $this->citiesList;?>
+            <?php echo $this->content;?>
         </select>
     </div>
     <div class="floatLeft padding10">

@@ -179,15 +179,22 @@ function getCities(){
 /**
  * Получить новости
  */
-function getNews(){
-    return array(
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
-        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+function getNews($news_id){
+    $news = array(
+        array(0,'01.02.2014','Первый урожай конопли на Дону', 'Text', 'city1, city2, city3'),
+        array(0,'10.02.2014','Трактористы и комбайнёрки берут ипотеку', 'Text', 'city1, city2, city3'),
+        array(0,'10.02.2014','Первая встреча с марсианами в Крыму', 'Text', 'city1, city2, city3'),
+        array(0,'11.02.2014','Обнаружено происхождение выражения "Кирдык"', 'Text', 'city1, city2, city3'),
+        array(0,'11.02.2014','Инфляция, это она', 'Text', 'city1, city2, city3'),
+        array(0,'12.02.2014','Премия оскара', 'Text', 'city1, city2, city3'),
+        array(0,'13.02.2014','ГМО побеждает', 'Text', 'city1, city2, city3'),
+        array(0,'13.02.2014','Новая память выходит на рынок', 'Text', 'city1, city2, city3'),
+        array(0,'13.02.2014','Британские учёные снова на коне', 'Text', 'city1, city2, city3'),
+        array(0,'13.02.2014','Закрыт последний ларёк', 'Text', 'city1, city2, city3'),
+        array(0,'13.02.2014','Неандертальцы возрождены', 'Text', 'city1, city2, city3'),
+        array(0,'13.02.2014','На Марсе найдена жизнь!', 'Text', 'city1, city2, city3'),
+        array(0,'14.02.2014','Аукцион в Питера', 'Text', 'city1, city2, city3'),
+        array(0,'14.02.2014','Лучший автосервис в Жмуринке', 'Text', 'city1, city2, city3')
     );
+    return ($news_id)? $news[$news_id]:$news;
 }
