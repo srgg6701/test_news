@@ -1,3 +1,8 @@
+<?php
+require_once "router.php";
+$content = ob_get_contents();
+ob_clean();
+?><!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,11 +18,11 @@
     	<div id="container">
         	<div id="main">
             	<nav>
-                	<div id="nav">Navigation</div>
+                	<div id="nav"><a href="<?php echo $root?>">Главная</a></div>
                 </nav>
                 <div role="main">
                 	<section>
-                		Main content
+                		<?=$content?>
                     </section>
                 </div>
             </div>
