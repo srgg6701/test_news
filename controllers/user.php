@@ -1,3 +1,3 @@
-<h1>
-    User methods
-</h1><?php
+<?php
+
+echo "<hr>called controller: ".$controller."<hr>";
