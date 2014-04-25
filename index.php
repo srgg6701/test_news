@@ -5,50 +5,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="stylesheet/screen.css">
+        <link rel="stylesheet" href="stylesheets/screen.css">
         <script src="js/common.js"></script>
         <script src="js/jquery-2.1.0.min.js"></script>
-<!-- move styles to a separated file -->
-<style>
-html, body{
-	height:100%;
-	margin:0;
-	padding:0;
-}
-#nav, main, #footer{
-	margin:auto !important;
-	max-width:90%;
-	min-width:640px;
-}
-#container *{
-	box-sizing:border-box;
-}
-.offsetVertical10,
-section{
-	padding-top:10px;
-	padding-bottom:10px;
-}
-nav{
-	margin:auto -10px;
-	padding:10px;
-}
-footer{
-	background-color:#efefef;
-}
-#footer{
-	height:60px;
-	line-height:60px;
-	padding:0 10px;
-}
-#main{
-	min-height:100%;
-	margin-bottom:-60px;
-	padding:0 10px 60px;
-}
-nav{
-	background-color: #eaebec;
-}
-</style>               
     </head>
     <body>
     	<div id="container">
@@ -56,11 +15,11 @@ nav{
             	<nav>
                 	<div id="nav">Navigation</div>
                 </nav>
-                <main>
+                <div role="main">
                 	<section>
                 		Main content
                     </section>
-                </main>
+                </div>
             </div>
             <footer>
             	<div id="footer">Footer</div>
