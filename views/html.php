@@ -10,7 +10,7 @@ class HTML{
         }else{
             $first = $add;
             $next = $news;
-            $link = "listing";
+            $link = "";
         }?>
         <legend>
             <div><?php echo $first;?>

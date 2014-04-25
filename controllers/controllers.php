@@ -6,6 +6,16 @@ require_once "views/html.php";
 // будем вызывать методы формирования представлений
 require_once "views/views.php";
 
+function getView($action,$section){
+    $view = new View();
+    if(!method_exists($view,$action))
+        require_once "views/404.php";
+    else {
+        $view->$action();
+        require_once "views/".$section."/".$action.".php";
+    }
+}
+
 class defaultController{
     function __construct($action=NULL){
         $view = new View();
@@ -16,22 +26,26 @@ class defaultController{
 }
 class userController{
     function __construct($action=NULL){
-        //echo "<div>Hello! I am the ".__CLASS__." constructor!</div>";
-        $view = new View();
-        echo "<hr>".SITE_ROOT."<hr>";
+        getView($action,'user');
+        /*$view = new View();
         if(!method_exists($view,$action))
             require_once "views/404.php";
         else {
             $view->$action();
-            require_once "views/".$action.".php";
-        }
+            require_once "views/user/".$action.".php";
+        }*/
     }
 }
 class adminController{
     function __construct($action=NULL){
-        //echo "<div>Hello! I am the ".__CLASS__." constructor!<hr>Action: $action</div>";
-        $view = new View();
-        $view->$action();
-        require_once "views/".$action.".php";
+        if(!$action) $action = "listing";
+        getView($action,'admin');
+        /*$view = new View();
+        if(!method_exists($view,$action))
+            require_once "views/404.php";
+        else {
+            $view->$action();
+            require_once "views/admin/".$action.".php";
+        }*/
     }
 }

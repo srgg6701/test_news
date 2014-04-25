@@ -9,7 +9,7 @@
         </select>
     </div>
     <div class="floatLeft padding10">
-        <h3><a href="<?php echo SITE_ROOT;?>/admin/listing">Администрирование новостей</a></h3>
+        <h3><a href="<?php echo SITE_ROOT;?>/admin/">Администрирование новостей</a></h3>
         <a href="<?php echo SITE_ROOT."/admin/add";?>">Добавить новость</a>
     </div>
 </section>

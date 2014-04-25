@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Получить список городов
+ */
 function getCities(){
     return array(
         1	=> "Абакан",
@@ -172,5 +174,20 @@ function getCities(){
         168	=> "Южно-Сахалинск",
         169	=> "Якутск",
         170	=> "Ярославль"
+    );
+}
+/**
+ * Получить новости
+ */
+function getNews(){
+    return array(
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
+        array(0,'00.00.00','Subject ', 'Text', 'city1, city2, city3'),
     );
 }
