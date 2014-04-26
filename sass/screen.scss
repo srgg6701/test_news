@@ -26,6 +26,12 @@
 .bg-lightskyblue{
   background-color: lightskyblue;
 }
+.color-grey{
+  color: grey;
+}
+.date{
+  margin: 10px 0 -2px 0;
+}
 .clearfix{
   @include clearfix;
 }
@@ -62,7 +68,6 @@ footer{
 #footer{
   height:60px;
   line-height:60px;
-  padding:0 10px;
 }
 #footer,
 #nav,
