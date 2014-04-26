@@ -57,17 +57,22 @@ class userController{
 }
 class adminController{
     function __construct($address = array(NULL)){
-        if(!$address[0]){
-            $page = "listing";
-        }
-        else{
-            $view = new View();
-            if(!method_exists($view,$action))
-                require_once "views/404.php";
-            else {
-                $view->$action();
-                require_once "views/admin/".$page.".php";
+        $this->content = new stdClass();
+        if(!$segment=$address[0]){ // /admin
+            $this->content->cities = getCities();
+            $this->content->news = getNews();
+            require_once "views/admin/listing.php";
+        }else{
+            if($segment!='add'){
+                $news_id = (int)$segment;
+                if(!$this->content->single_news = getNews($news_id))
+                    require_once "views/404.php";
+                else
+                    $segment = "single_news";
+            }else{
+                
             }
+            require_once "views/admin/".$segment.".php";
         }
     }
 }
