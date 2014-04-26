@@ -23,33 +23,38 @@
 }
 
 /* line 32, ../sass/screen.scss */
+.color-red {
+  color: red;
+}
+
+/* line 35, ../sass/screen.scss */
 .date {
   margin: 10px 0 -2px 0;
 }
 
-/* line 35, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 .floatLeft {
   float: left;
 }
 
-/* line 41, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 .marginRight10 {
   margin-right: 10px;
 }
 
-/* line 44, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 .padding10 {
   padding: 10px;
 }
 
 /* styles */
-/* line 48, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
@@ -57,35 +62,35 @@ html, body {
   padding: 0;
 }
 
-/* line 54, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* line 59, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 #container {
   height: 100%;
 }
 
-/* line 62, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
 fieldset {
   border: solid 2px #cccccc;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 footer {
   background-color: #efefef;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 #footer {
   height: 60px;
   line-height: 60px;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 #footer,
 #nav,
 div[role="main"] {
@@ -95,37 +100,37 @@ div[role="main"] {
   width: 100%;
 }
 
-/* line 78, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 h1, h2, h3, h4 {
   padding: 10px 0;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 legend {
   border: solid 1px #cccccc;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 nav {
   background-color: #eaebec;
   margin: auto -10px;
   padding: 10px;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #main {
   min-height: 100%;
   margin-bottom: -60px;
   padding: 0 10px 60px;
 }
 
-/* line 94, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 section {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 97, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 #cities_filter {
   height: 140px;
   overflow: auto;
@@ -133,7 +138,7 @@ section {
   margin-top: 10px;
   padding: 0;
 }
-/* line 103, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 #cities_filter label {
   display: inline-block;
   margin: 0 4px 0 auto;
@@ -142,33 +147,39 @@ section {
   white-space: nowrap;
   width: 148px;
 }
-/* line 110, ../sass/screen.scss */
+/* line 113, ../sass/screen.scss */
 #cities_filter label.checked {
   background-color: #fff;
   box-shadow: 0 0 4px #999;
 }
-/* line 115, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 #cities_filter legend {
   background-color: #efefef;
   padding: 6px 10px;
 }
 
-/* line 120, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 #div-cities {
   background-color: #ddd;
   padding: 8px;
 }
 
-/* line 124, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 nav, fieldset, legend div {
   padding: 10px;
 }
 
-/* line 128, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
+#rem_news {
+  margin: 12px auto;
+  display: inline-block;
+}
+
+/* line 135, ../sass/screen.scss */
 table td {
   padding: 2px 4px;
 }
-/* line 130, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 table td div {
   height: 19px;
   overflow: hidden;

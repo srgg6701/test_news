@@ -14,6 +14,7 @@ if(!$news=$this->content->single_news):?>
     <article>
         <?php echo $news['text'];?>
     </article>
+    <a id="rem_news" class="color-red" href="<?php echo SITE_ROOT?>/admin/remove/<?php echo $news['id']?>">Удалить новость</a>
     <br>
     <hr/>
     <br>

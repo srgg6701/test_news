@@ -58,22 +58,36 @@ class userController{
 class adminController{
     function __construct($address = array(NULL)){
         $this->content = new stdClass();
+        $err = false;
         if(!$segment=$address[0]){ // /admin
             $this->content->cities = getCities();
             $this->content->news = getNews();
-            require_once "views/admin/listing.php";
+            $segment='listing';
         }else{
-            $err = false;
             if($segment!='add'){
+                $removing = false;
+                //
+                if($segment=='remove'){
+                    $segment = $address[1];
+                    $removing = true;
+                }
                 if(!$this->content->single_news = getNews($segment))
                     $err='news_id';
                 else{
-                    $segment = "single_news";
+                    if($removing){ // удалить новость
+                        //die('remove!');
+                        $this->content->result="Новость удалена. Хотя... чёрт её знает...";
+                        //$segment='listing';
+                        header("location: ".SITE_ROOT."/admin");
+                        die();
+                    }else
+                        $segment = "single_news";
                 }
             }else{
-
+                $this->content->result="Новость добавлена!";
+                $segment='listing';
             }
-            require_once ($err)? "views/404.php" : "views/admin/".$segment.".php";
         }
+        require_once ($err)? "views/404.php" : "views/admin/".$segment.".php";
     }
 }

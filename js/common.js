@@ -28,10 +28,9 @@ $(function(){
                 this.checked = false;
                 $(this).parent('label').removeClass('checked');
             }
-        });/*
-        if(this.checked){
-            $(citiesBoxes).attr('checked',true);
-        }else
-            $(citiesBoxes).attr('checked',false);*/
+        });
     });
+    $('#rem_news').on('click', function(){
+        if(!confirm('Подтверждаете удаление?')) return false;
+    })
 });

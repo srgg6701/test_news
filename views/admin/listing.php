@@ -1,3 +1,6 @@
+<?php if(isset($this->content->result)):?>
+<div><?php echo $this->content->result;?></div>
+<?php endif;?>
 <fieldset>
     <?php HTML::Legend();?>
     <div>Фильтр городов:

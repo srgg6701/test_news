@@ -29,6 +29,9 @@
 .color-grey{
   color: grey;
 }
+.color-red{
+  color: red;
+}
 .date{
   margin: 10px 0 -2px 0;
 }
@@ -123,6 +126,10 @@ section{
   }
 nav, fieldset, legend div{
   @include padding;
+}
+#rem_news{
+  margin: 12px auto;
+  display: inline-block;
 }
 table{
   td{
