@@ -1,9 +1,18 @@
 <?php
 $raw_url = mbsplit('/',$_SERVER['REQUEST_URI']);
 // set root path
-define('SITE_ROOT','http://' . $_SERVER['HTTP_HOST'].'/news');
-//die(SITE_ROOT);
-$location = array_slice($raw_url,4);
+if($_SERVER['HTTP_HOST']=='127.0.0.1'){
+    define('SITE_ROOT','http://' . $_SERVER['HTTP_HOST'].'/'.implode(array_slice($raw_url,1,3), '/'));
+	$location = array_slice($raw_url,4);
+}else{
+	if($_SERVER['HTTP_HOST']=='localhost'){
+		define('SITE_ROOT','http://localhost/news');
+		$location = array_slice($raw_url,2);
+	}else{		
+		define('SITE_ROOT','http://mytest-work-ru.1gb.ru');
+		$location = array_slice($raw_url,1);
+	}
+}
 /*
  * получить имя текущего раздела.
  * Первый сегмент - условный тип юзера (default, user, admin)*/
@@ -25,5 +34,6 @@ if(!class_exists($controller_name)){
         $segments[$index-1]   = (isset($location[$index]))? $location[$index]:NULL;
     // создать экземпляр активного контроллера и передать текущий action
     if(!$_POST) ob_start();
-    $controller = new $controller_name($segments); //var_dump("<pre>",$controller,"<pre/>");
+    $controller = new $controller_name($segments); 
+	//var_dump("<pre>",$controller,"<pre/>");
 }
