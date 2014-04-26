@@ -126,6 +126,51 @@ section {
 }
 
 /* line 97, ../sass/screen.scss */
+#cities_filter {
+  height: 140px;
+  overflow: auto;
+  margin-bottom: 12px;
+  margin-top: 10px;
+  padding: 0;
+}
+/* line 103, ../sass/screen.scss */
+#cities_filter label {
+  display: inline-block;
+  margin: 0 4px 0 auto;
+  overflow: hidden;
+  padding: 4px;
+  white-space: nowrap;
+  width: 148px;
+}
+/* line 110, ../sass/screen.scss */
+#cities_filter label.checked {
+  background-color: #fff;
+  box-shadow: 0 0 4px #999;
+}
+/* line 115, ../sass/screen.scss */
+#cities_filter legend {
+  background-color: #efefef;
+  padding: 6px 10px;
+}
+
+/* line 120, ../sass/screen.scss */
+#div-cities {
+  background-color: #ddd;
+  padding: 8px;
+}
+
+/* line 124, ../sass/screen.scss */
 nav, fieldset, legend div {
   padding: 10px;
+}
+
+/* line 128, ../sass/screen.scss */
+table td {
+  padding: 2px 4px;
+}
+/* line 130, ../sass/screen.scss */
+table td div {
+  height: 19px;
+  overflow: hidden;
+  padding: 0;
 }

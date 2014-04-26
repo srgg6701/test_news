@@ -94,7 +94,44 @@ nav{
 section{
   @include offsetVertical;
 }
+#cities_filter{
+  height: 140px;
+  overflow: auto;
+  margin-bottom: 12px;
+  margin-top: 10px;
+  padding: 0;
+  label{
+    display: inline-block;
+    margin:0 4px 0 auto;
+    overflow: hidden;
+    padding: 4px;
+    white-space: nowrap;
+    width: 148px;
+    &.checked{
+      background-color: #fff;
+      box-shadow: 0 0 4px #999;
+    }
+  }
+  legend{
+    background-color: #efefef;
+    padding: 6px 10px;
+  }
+}
+  #div-cities{
+    background-color: #ddd;
+    padding: 8px;
+  }
 nav, fieldset, legend div{
   @include padding;
+}
+table{
+  td{
+    padding: 2px 4px;
+    div{
+      height: 19px;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
 }
 

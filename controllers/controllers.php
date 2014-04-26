@@ -65,11 +65,11 @@ class adminController{
         }else{
             $err = false;
             if($segment!='add'){
-                $news_id = (int)$segment;
-                if(!$this->content->single_news = getNews($news_id))
+                if(!$this->content->single_news = getNews($segment))
                     $err='news_id';
-                else
+                else{
                     $segment = "single_news";
+                }
             }else{
 
             }
