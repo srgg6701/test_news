@@ -39,7 +39,8 @@
                 <td><?php echo $news[0];?></td>
                 <td><div><a href="<?php echo SITE_ROOT."/admin/".$news_id;?>"><?php echo $news[1];?></a></div></td>
                 <td><div><?php
-                    echo mb_substr($news[2],0,65,'UTF-8');?></div></td>
+                    echo $news[2];
+                    //echo mb_substr($news[2],0,65,'UTF-8');?></div></td>
             </tr>
             <?php    //var_dump("<pre>",$news,"<pre/>");
         }?>
