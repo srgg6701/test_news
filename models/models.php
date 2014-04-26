@@ -190,10 +190,14 @@ function getCities($city_id=NULL){
 /**
  * Получить новости
  */
-function getNews($news_id=NULL){
+function getNews($news_id=NULL,$limit=false){
     $Db=new Db();
     $connect=$Db->getConnect();
-    $sub_text = ($news_id)? "`text`" : "LEFT (`text`, 120) AS 'text'";
+    if($news_id) $sub_text = "`text`";
+    else{
+        if (!$limit) $limit = 120;
+        $sub_text = "LEFT (`text`, ".$limit.") AS 'text'";
+    }
     $sth = $connect->prepare("SELECT `id`, DATE_FORMAT(`datetime`, '%d.%m.%Y') AS 'datetime', `subject`, $sub_text, `cities_id_id` FROM news");
     $sth->execute();
     $news = array();
@@ -306,7 +310,7 @@ FB Newswire будет доступно как на странице в Facebook
 function getNewsByCity($city_id){
     $city_news=array();
     $city_id = (string)$city_id;
-    foreach(getNews() as $i=>$news){
+    foreach(getNews(NULL,300) as $i=>$news){
         if(in_array($city_id, explode(',', $news[3])))
             $city_news[$i]=$news;
     } //echo "<hr>"; var_dump("<pre>",$city_news,"<pre/>");
