@@ -63,16 +63,17 @@ class adminController{
             $this->content->news = getNews();
             require_once "views/admin/listing.php";
         }else{
+            $err = false;
             if($segment!='add'){
                 $news_id = (int)$segment;
                 if(!$this->content->single_news = getNews($news_id))
-                    require_once "views/404.php";
+                    $err='news_id';
                 else
                     $segment = "single_news";
             }else{
-                
+
             }
-            require_once "views/admin/".$segment.".php";
+            require_once ($err)? "views/404.php" : "views/admin/".$segment.".php";
         }
     }
 }
