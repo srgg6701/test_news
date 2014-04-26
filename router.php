@@ -1,7 +1,8 @@
 <?php
 $raw_url = mbsplit('/',$_SERVER['REQUEST_URI']);
 // set root path
-define('SITE_ROOT','http://' . $_SERVER['HTTP_HOST'].'/'.implode(array_slice($raw_url,1,3), '/'));
+define('SITE_ROOT','http://' . $_SERVER['HTTP_HOST'].'/news');
+//die(SITE_ROOT);
 $location = array_slice($raw_url,4);
 /*
  * получить имя текущего раздела.
