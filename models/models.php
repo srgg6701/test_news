@@ -3,7 +3,16 @@
  * Получить список городов
  */
 function getCities($city_id=NULL){
-    $cities = array(
+    $Db=new Db();
+    $connect=$Db->getConnect();
+    $sth = $connect->prepare("SELECT id, city_name FROM cities");
+    $sth->execute();
+    $cities = array();//$sth->fetchAll();
+    foreach($sth->fetchAll() as $i => $data){
+        $cities[$data['id']]=$data['city_name'];
+    }
+    var_dump("<pre>",$cities,"<pre/>"); die();
+    /*$cities = array(
         5	=> "Армавир",
         6	=> "Артём",
         7	=> "Архангельск",
@@ -174,7 +183,7 @@ function getCities($city_id=NULL){
         168	=> "Южно-Сахалинск",
         169	=> "Якутск",
         170	=> "Ярославль"
-    );
+    );*/
     if($city_id)
         return (array_key_exists($city_id, $cities))? $cities[$city_id] : false;
     return $cities;

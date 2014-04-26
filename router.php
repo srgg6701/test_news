@@ -1,4 +1,5 @@
 <?php
+session_start();
 $raw_url = mbsplit('/',$_SERVER['REQUEST_URI']);
 // set root path
 if($_SERVER['HTTP_HOST']=='127.0.0.1'){

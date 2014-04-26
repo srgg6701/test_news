@@ -1,4 +1,5 @@
 <?php
+header('Content-type: text/html; charset=UTF-8');
 require_once "router.php";
 $content = ob_get_contents();
 ob_end_clean();
