@@ -3,16 +3,20 @@ $raw_url = mbsplit('/',$_SERVER['REQUEST_URI']);
 // set root path
 if($_SERVER['HTTP_HOST']=='127.0.0.1'){
     define('SITE_ROOT','http://' . $_SERVER['HTTP_HOST'].'/'.implode(array_slice($raw_url,1,3), '/'));
-	$location = array_slice($raw_url,4);
+	define('SERVER_LOCATION','local_easy');
+    $location = array_slice($raw_url,4);
 }else{
 	if($_SERVER['HTTP_HOST']=='localhost'){
 		define('SITE_ROOT','http://localhost/news');
+        define('SERVER_LOCATION','local_denwer');
 		$location = array_slice($raw_url,2);
 	}else{		
 		define('SITE_ROOT','http://mytest-work-ru.1gb.ru');
 		$location = array_slice($raw_url,1);
+        define('SERVER_LOCATION','remote_1gb');
 	}
 }
+require_once 'db/connect_db.php';
 /*
  * получить имя текущего раздела.
  * Первый сегмент - условный тип юзера (default, user, admin)*/
