@@ -70,22 +70,26 @@ class adminController{
                 if($segment=='remove'){
                     $segment = $address[1];
                     $removing = true;
+                }elseif($segment=='save'){
+                    var_dump("<pre>",$_POST,"<pre/>");
+                    /*$post = ob_get_contents();
+                    var_dump("<pre>",$post,"<pre/>");
+                    ob_end_clean();*/
+                    die('saving news....');
                 }
                 if(!$this->content->single_news = getNews($segment))
                     $err='news_id';
                 else{
                     if($removing){ // удалить новость
-                        //die('remove!');
                         $this->content->result="Новость удалена. Хотя... чёрт её знает...";
-                        //$segment='listing';
                         header("location: ".SITE_ROOT."/admin");
                         die();
                     }else
                         $segment = "single_news";
                 }
             }else{
-                $this->content->result="Новость добавлена!";
-                $segment='listing';
+                $this->content->cities = getCities();
+                //$segment='listing';
             }
         }
         require_once ($err)? "views/404.php" : "views/admin/".$segment.".php";

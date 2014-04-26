@@ -9,6 +9,17 @@
   min-width: 640px;
   width: 100%;
 }
+@mixin common_label{
+  display: inline-block;
+  overflow: hidden;
+  margin:0 4px 0 auto;
+  padding: 4px;
+  white-space: nowrap;
+  &.checked{
+    background-color: #fff;
+    box-shadow: 0 0 4px #999;
+  }
+}
 @mixin offsetVertical($offset:10px){
   padding-top:$offset;
   padding-bottom:$offset;
@@ -47,6 +58,9 @@
 .padding10{
   @include padding;
 }
+.width100{
+  width: 100% !important;
+}
 /* styles */
 html, body{
   height:100%;
@@ -78,6 +92,50 @@ div[role="main"]
 {
   @include common_space;
 }
+#form_add_news{
+  position: relative;
+  [role="form_elements"]{
+    padding-right: 20px;
+    width: 55%;
+    input,textarea{
+      display: block;
+      font-size: 1.1em;
+      padding: 4px 6px;
+      width: 100%;
+    }
+    textarea{
+      font-size: 18px;
+      margin-top: 10px;
+      min-height: 500px;
+      height: 100%;
+    }
+  }
+  [role="cities_list"]{
+    bottom: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    padding-left: 4px;
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 45%;
+    label{
+      //width: 97px;
+      @include common_label;
+    }
+  }
+  button, input[type="reset"]{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  button{
+    clear: both;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+}
 h1, h2, h3, h4{
   padding: 10px 0;
 }
@@ -104,16 +162,8 @@ section{
   margin-top: 10px;
   padding: 0;
   label{
-    display: inline-block;
-    margin:0 4px 0 auto;
-    overflow: hidden;
-    padding: 4px;
-    white-space: nowrap;
     width: 148px;
-    &.checked{
-      background-color: #fff;
-      box-shadow: 0 0 4px #999;
-    }
+    @include common_label;
   }
   legend{
     background-color: #efefef;

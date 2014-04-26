@@ -23,6 +23,6 @@ if(!class_exists($controller_name)){
     foreach(range(1,3) as $index) // /site_name/segment1/segment2/segment3
         $segments[$index-1]   = (isset($location[$index]))? $location[$index]:NULL;
     // создать экземпляр активного контроллера и передать текущий action
-    ob_start();
+    if(!$_POST) ob_start();
     $controller = new $controller_name($segments); //var_dump("<pre>",$controller,"<pre/>");
 }

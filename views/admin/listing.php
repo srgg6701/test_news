@@ -8,7 +8,7 @@
         &nbsp;
         <label><input type="checkbox" id="all_boxes"> все города</label></div>
     <fieldset id="cities_filter">
-        <div id="div-cities">
+        <div id="div-cities" role="boxes_box">
     <?php foreach($this->content->cities as $city_id => $city):
     ?>
         <label>

@@ -2,7 +2,7 @@ $(function(){
     $('#select_city').on('change', function(){
         location.href += 'user/news/' + $('option:selected',this).val();
     });
-    var citiesBoxes = $('#cities_filter input[type="checkbox"]');
+    var citiesBoxes = $('[role="boxes_box"] input[type="checkbox"]');
     $(citiesBoxes).on('click', function(){
         var func=(this.checked)? 'addClass':'removeClass';
         $(this).parent('label')[func]('checked');
