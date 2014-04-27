@@ -190,18 +190,24 @@ function getCities($city_id=NULL){
 /**
  * Получить новости
  */
-function getNews($news_id=NULL,$limit=false){
+function getNews($news_id=NULL,$limit=false, $filter=false){
     $Db=new Db();
     $connect=$Db->getConnect();
+    $where = "";
     if($news_id) $sub_text = "`text`";
     else{
         if (!$limit) $limit = 120;
         $sub_text = "LEFT (`text`, ".$limit.") AS 'text'";
+        if($filter&&$cts=getCitiesSettings()){
+
+            $where = 'WHERE cities_id_id REGEXP "(^|,)(' .
+                implode('|',$cts). ')(,|$)"';
+        }
     }
     $query = "SELECT `id`,
                       DATE_FORMAT(`datetime`, '%d.%m.%Y') AS 'datetime',
                      `subject`, $sub_text, `cities_id_id`
-                FROM news ORDER BY `id` DESC";
+                FROM news $where ORDER BY `id` DESC";
     $sth = $connect->prepare($query);
     $sth->execute();
     $news = array();
@@ -328,7 +334,7 @@ function getNewsByCity($city_id){
 function getCitiesSettings(){
     $Db=new Db();
     $connect=$Db->getConnect();
-    $sth = $connect->prepare("SELECT filters FROM settings");
+    $sth = $connect->prepare("SELECT filters FROM settings LIMIT 1");
     $sth->execute();
     return explode(',',$sth->fetchColumn());
 }
@@ -338,9 +344,7 @@ function getCitiesSettings(){
 function saveAdminNewsFilter($post){
     $Db=new Db();
     $connect=$Db->getConnect();
-
     $cities_filter = implode(',',$post['city']);
-
     $checkFilters = function($connect){
         $query = "SELECT count(*) FROM settings";
         $sth = $connect->prepare($query);
@@ -348,7 +352,6 @@ function saveAdminNewsFilter($post){
         return $sth->fetchColumn();
     };
     $result = $checkFilters($connect);
-    //var_dump($result); die($result==0);
     // ещё ничего не добавляли:
     if($result==0){
         $query = "INSERT INTO settings ( filters ) VALUES ('". $cities_filter ."')";
@@ -357,19 +360,30 @@ function saveAdminNewsFilter($post){
     }
     $sth = $connect->prepare($query);
     $sth->execute();
-    return $post['city']; //var_dump("<pre>",$result,"<pre/>"); die();
+    return $post['city'];
 }
 /**
  * Сохранить новую новость
  */
 function storeNews($post){
-
+    if(!$post['city']) return -1;
+    else $cities = implode(',',$post['city']);
+    $query = "INSERT INTO news
+        (datetime, subject, text, cities_id_id) VALUES
+        ( '".date('Y-m-d H:i:s')."', '".
+            $post['subject']."', '".
+            $post['news_text'] ."', '". $cities ."' )";
+    $Db=new Db();
+    $connect=$Db->getConnect();
+    $sth = $connect->prepare($query);
+    return $sth->execute();
 }
 /**
  * Сохранить изменения новости
  */
 function saveNews($news_id){
-
+    $Db=new Db();
+    $connect=$Db->getConnect();
 }
 /**
  * Удалить новость

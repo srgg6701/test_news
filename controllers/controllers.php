@@ -60,7 +60,7 @@ class adminController{
         $this->content = new stdClass();
         $err = false;
         $this->content->cities = getCities();
-        $this->content->news = getNews();
+        $this->content->news = getNews(NULL, false, true); // будем фильтровать города
         $view = new View();
         // просмотр всех новостей
         if(!$segment=$address[0]){ // /admin
@@ -71,7 +71,8 @@ class adminController{
                 $this->content->form_fields = $view->formFields();
                 $this->content->cities_filter = $view->citiesList(getCities());
             }elseif($address[1]!='filter'){
-                $this->content->result= ($segment=='remove') ?
+                //$this->content->result=
+                $_SESSION['content_result'] = ($segment=='remove') ?
                     "Новость удалена. Выпилена с предельной жестокостью..."
                     : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
             }
@@ -117,7 +118,21 @@ class adminController{
                                     $this->citiesFilter=saveAdminNewsFilter($_POST);
                                     break;
                                 case 'new':
-                                    storeNews($_POST);
+                                    $ok=false;
+                                    if(!$ok=storeNews($_POST)){
+                                        //$this->content->result
+                                        $_SESSION['content_result'] = "Ошибка - не удалось добавить новость...";
+                                    }
+                                    if($ok===-1){
+                                        //$this->content->result
+                                        $_SESSION['content_result'] = "Ошибка - вы не отметили ни одного города...";
+                                        $_SESSION['news_subject'] = $_POST['subject'];
+                                        $_SESSION['news_text'] = $_POST['news_text'];
+                                        //var_dump($_SESSION);
+                                        //var_dump($_POST); die();
+                                        header("location: ".SITE_ROOT."/admin/add");
+                                        die();
+                                    }
                                     break;
                                 default:
                                     if($news_id)
@@ -145,7 +160,7 @@ class adminController{
                 $included_file = $segment;
             }
         }
-        // ? не попадаем сюда, если сохраняли или удаляли новость ?
+        // не попадаем сюда, если сохраняли, удаляли новость или настраивали фильтр городов
         require_once ($err)? "views/404.php" : "views/admin/".$included_file.".php";
     }
 }

@@ -17,10 +17,23 @@ class View{
     }
 
     public static function formFields(){
-        return '<div role="form_elements" class="floatLeft">
-            <input name="subject" type="text" placeholder="Заголовок новости">
-            <textarea name="news_text" placeholder="Текст новости..."></textarea>
+        if(isset($_SESSION['news_subject'])){
+            $subject = $_SESSION['news_subject'];
+            unset($_SESSION['news_subject']);
+        }else
+            $subject = '';
+        if(isset($_SESSION['news_text'])){
+            $text = $_SESSION['news_text'];
+            unset($_SESSION['news_text']);
+        }else
+            $text = '';
+
+
+        $html = '<div role="form_elements" class="floatLeft">
+            <input name="subject" type="text" placeholder="Заголовок новости" value="'.$subject.'">
+            <textarea name="news_text" placeholder="Текст новости...">'.$text.'</textarea>
         </div>';
+        return $html;
     }
 
     public static function createCitiesList($cities,$filter=NULL){

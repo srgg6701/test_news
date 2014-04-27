@@ -1,3 +1,10 @@
+<?php
+if($_SESSION['content_result']):?>
+    <div class="mess_result"><?php echo $_SESSION['content_result'];
+        unset($_SESSION['content_result']); ?>
+    </div>
+<?php
+endif;?>
 <fieldset>
     <?php HTML::Legend('add');?>
     <form method="post" enctype="application/x-www-form-urlencoded" id="form_add_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/new">

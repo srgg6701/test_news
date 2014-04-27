@@ -1,6 +1,12 @@
 <?php if(isset($this->content->result)):?>
 <div><?php echo $this->content->result;?></div>
-<?php endif;?>
+<?php endif;
+if($_SESSION['content_result']):?>
+    <div class="mess_result"><?php echo $_SESSION['content_result'];
+        unset($_SESSION['content_result']); ?>
+    </div>
+<?php
+endif;?>
 <fieldset>
     <?php HTML::Legend("listing");?>
     <form method="post" enctype="application/x-www-form-urlencoded" id="filter_news" name="filter_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/filter">
@@ -30,7 +36,7 @@
             <th>Тема</th>
             <th>Текст (частично)</th>
         </tr>
-        <?php    foreach ($this-> content->news as $news_id => $news) {
+        <?php    foreach ($this->content->news as $news_id => $news) {
             ?>
             <tr>
                 <td><?php echo $news_id;?></td>
