@@ -96,6 +96,7 @@ class adminController{
                     или сохранить новую ($news_id = new)
                     */
                     die($segment.'/'.$news_id);
+                    // будем загружать стр. со списком всех новостей
                     $included_file = 'listing';
                     /*if($segment=='save'){ // Если сохраняем новость
                         var_dump("<pre>",$_POST,"<pre/>");*/
@@ -109,13 +110,13 @@ class adminController{
                     $err='news_id';
                 /**
                  id новости найден, всё ОК - сформируем сообщение об удалении
-                 или сохранении новости и назначим подключаемый файл */
+                 или сохранении новости */
                 elseif($segment=='remove'||$segment=='save'){
                     $this->content->result= ($segment=='remove') ?
                         "Новость удалена. Хотя... чёрт её знает..."
                         : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
                 }
-            }else{ // если сегмент == add, используем его в качестве подключаемого файла
+            }else{ // если сегмент == add, используем его имя в качестве подключаемого файла
                 $included_file = $segment;
             }
         }

@@ -124,10 +124,6 @@ $(function(){
             $(this).remove();
         });
     });
-    // сохранение новости
-    $('#btn-save-news').on('click', function(){
-
-    });
     // удаление новости
     $('#btn-rem-news').on('click', function(){
         if(!confirm('Подтверждаете удаление?')) return false;
