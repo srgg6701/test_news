@@ -59,40 +59,67 @@ class adminController{
     function __construct($address = array(NULL)){
         $this->content = new stdClass();
         $err = false;
+        // просмотр всех новостей
         if(!$segment=$address[0]){ // /admin
             $this->content->cities = getCities();
             $this->content->news = getNews();
-            $segment='listing';
+            $included_file='listing';
         }else{
-            if($segment!='add'){
-                $removing = false;
-                //
-                if($segment=='remove'){
-                    $segment = $address[1];
-                    $removing = true;
-                }elseif($segment=='save'){
-                    var_dump("<pre>",$_POST,"<pre/>");
-                    /*$post = ob_get_contents();
-                    var_dump("<pre>",$post,"<pre/>");
-                    ob_end_clean();*/
-                    die('saving news....');
-                }
-                if(!$this->content->single_news = getNews($segment))
-                    $err='news_id';
-                else{
-                    if($removing){ // удалить новость
-                        $this->content->result="Новость удалена. Хотя... чёрт её знает...";
-                        header("location: ".SITE_ROOT."/admin");
-                        die();
-                    }else
-                        $segment = "single_news";
-                }
-            }else{
+            if($segment!='remove'&&$segment!='save'){ // /add или /[id_новости]
+                /**
+                 Если будем просматривать (и, возможно, здесь же и редактировать)
+                 новость или загружаем раздел создания новости, нам нужны общие
+                 блоки, формируемые во View: */
                 $view = new View();
                 $this->content->form_fields = $view->formFields();
                 $this->content->cities_filter = $view->citiesList(getCities());
             }
+            /**
+            Если не загружаем страницу добавления новости */
+            if($segment!='add'){
+                /**
+                Наличие первого сегмента уже проверено в начале метода.
+                Поскольку мы здесь, это значит, что:
+                - он (первый сегмент) есть и
+                - он - НЕ 'add'. Т.е., делаем что-либо с существующей новостью -
+                  - просматриваем (/id_новости)
+                  - удаляем (/remove/id_новости)
+                  - сохраняем (/save/id_новости)
+                если id новости отсутствует, - 404*/
+                //$removing = false;
+                // Если удаляем или сохраняем новость
+                if($segment=='remove'||$segment=='save'){
+                    $news_id = $address[1]; // id новости
+                    /**
+                    удалить новость
+                    или сохранить изменения в существующей
+                    или сохранить новую ($news_id = new)
+                    */
+                    die($segment.'/'.$news_id);
+                    $included_file = 'listing';
+                    /*if($segment=='save'){ // Если сохраняем новость
+                        var_dump("<pre>",$_POST,"<pre/>");*/
+                }else{ // /[id_новости] - просмотр
+                    $news_id = $segment;
+                    // будем загружать стр. с просмотром индивидуальной новости
+                    $included_file = "single_news";
+                }
+                // Т.к. id новости необходим (см.выше), его отсутствие означает 404
+                if($news_id != 'new' && !$this->content->single_news = getNews($news_id))
+                    $err='news_id';
+                /**
+                 id новости найден, всё ОК - сформируем сообщение об удалении
+                 или сохранении новости и назначим подключаемый файл */
+                elseif($segment=='remove'||$segment=='save'){
+                    $this->content->result= ($segment=='remove') ?
+                        "Новость удалена. Хотя... чёрт её знает..."
+                        : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
+                }
+            }else{ // если сегмент == add, используем его в качестве подключаемого файла
+                $included_file = $segment;
+            }
         }
-        require_once ($err)? "views/404.php" : "views/admin/".$segment.".php";
+        // ? не попадаем сюда, если сохраняли или удаляли новость ?
+        require_once ($err)? "views/404.php" : "views/admin/".$included_file.".php";
     }
 }

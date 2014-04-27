@@ -44,8 +44,12 @@ article{
   }
   &.admin{
     margin-bottom: 10px;
+    position: relative;
     h4{
       margin-top: -8px;
+    }
+    [role="cities_list"]{
+      margin: 10px auto;
     }
   }
 }
@@ -109,6 +113,16 @@ html, body{
 button, input[type="submit"], input[type="reset"]{
   @include padding;
 }
+.close{
+  background-color: lightcoral;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  float: right;
+  height: 21px;
+  text-align: center;
+  width: 21px;
+}
 #container {
   height: 100%;
 }
@@ -130,36 +144,6 @@ div[role="main"]
 }
 #form_add_news{
   position: relative;
-  [role="form_elements"]{
-    padding-right: 20px;
-    width: 55%;
-    input,textarea{
-      display: block;
-      font-size: 1.1em;
-      padding: 4px 6px;
-      width: 100%;
-    }
-    textarea{
-      font-size: 18px;
-      margin-top: 10px;
-      min-height: 500px;
-      height: 100%;
-    }
-  }
-  [role="cities_list"]{
-    bottom: 0;
-    overflow: auto;
-    overflow-x: hidden;
-    padding-left: 4px;
-    position: absolute;
-    right: 0;
-    top:0;
-    width: 45%;
-    label{
-      //width: 97px;
-      @include common_label;
-    }
-  }
   button, input[type="reset"]{
     margin-bottom: 10px;
     margin-top: 10px;
@@ -169,10 +153,19 @@ div[role="main"]
     font-weight: bold;
     margin-right: 10px;
   }
-
 }
 h1, h2, h3, h4{
   padding: 10px 0;
+}
+#img-edit-header{
+  margin: 6px 2px -6px 0;
+  &.editing{
+    float: left;
+    margin-bottom: -28px;
+  }
+}
+#img-edit-text{
+  margin: 6px 2px -2px 0;
 }
 legend{
   @include border;
@@ -187,6 +180,43 @@ nav{
    margin-bottom:-60px;
    padding:0 10px 60px;
  }
+[role="form_elements"]{
+  padding-right: 20px;
+  width: 55%;
+  input,textarea{
+    display: block;
+    font-size: 1.1em;
+    padding: 4px 6px;
+    width: 100%;
+  }
+  textarea{
+    font-size: 18px;
+    margin-top: 10px;
+    min-height: 500px;
+    height: 100%;
+  }
+}
+[role="cities_list"]{
+  bottom: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-left: 4px;
+  position: absolute;
+  right: 0;
+  top:0;
+  width: 45%;
+  label{
+    //width: 97px;
+    @include common_label;
+  }
+}
+[role="edit"]{
+  opacity: 0.6;
+  &:hover{
+    cursor: pointer;
+    opacity: 1;
+  }
+}
 section{
   @include offsetVertical;
 }
