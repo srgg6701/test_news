@@ -115,4 +115,11 @@ $(function(){
             location.href=$(this).attr('data-location');
         }
     })
+    $('.mess_result:visible').fadeOut(5000).on('click', function(){
+        $(this).remove();
+    });
+    //
+    $('table tbody tr td:nth-child(3)').on('mouseenter', function(){
+        this.title = $('a', this).text();
+    });
 });

@@ -51,12 +51,12 @@ class View{
         return $cList;
     }
 
-    public static function citiesList($cities){
+    public static function citiesList($cities,$filter=null){
         $cList = '<div role="cities_list" class="floatLeft">
             <label class="width100">
                 <input type="checkbox" id="all_boxes"> Все города</label>
                 <div role="boxes_box">';
-        $cList.= self::createCitiesList($cities);
+        $cList.= self::createCitiesList($cities,$filter);
         $cList.='
             </div>
         </div>';

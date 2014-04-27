@@ -45,4 +45,15 @@ class HTML{
     public static function Menu(){
         ?><a href="<?php echo SITE_ROOT; ?>">Главная</a><?php
     }
+    /**
+     * Вывести сообщение
+     */
+    public static function showMessage(){
+        if($_SESSION['content_result']){?>
+            <div class="mess_result" title="Закрыть"><?php echo $_SESSION['content_result'];
+                unset($_SESSION['content_result']); ?>
+            </div>
+        <?php
+        }
+    }
 }

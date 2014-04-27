@@ -83,11 +83,22 @@ article.admin [role="cities_list"] {
 }
 
 /* line 84, ../sass/screen.scss */
+.mess_result {
+  background-color: #ffff76;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 20px;
+  position: fixed;
+  right: 30%;
+  top: 5px;
+}
+
+/* line 93, ../sass/screen.scss */
 .padding10 {
   padding: 10px;
 }
 
-/* line 87, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .singleH4 {
   background-color: lightgoldenrodyellow;
   font-size: 1.2em;
@@ -95,13 +106,13 @@ article.admin [role="cities_list"] {
   padding: 10px;
 }
 
-/* line 93, ../sass/screen.scss */
+/* line 102, ../sass/screen.scss */
 .width100 {
   width: 100% !important;
 }
 
 /* styles */
-/* line 97, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
@@ -109,26 +120,26 @@ html, body {
   padding: 0;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* line 108, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 .btn_top_right {
   float: right;
   margin: -8px 19px auto;
   padding: 4px 10px;
 }
 
-/* line 113, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 button, input[type="submit"], input[type="reset"] {
   padding: 10px;
 }
 
-/* line 116, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 .close {
   background-color: lightcoral;
   border-radius: 10px;
@@ -140,28 +151,28 @@ button, input[type="submit"], input[type="reset"] {
   width: 21px;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 #container {
   height: 100%;
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 fieldset {
   border: solid 2px #cccccc;
 }
 
-/* line 132, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 footer {
   background-color: #efefef;
 }
 
-/* line 135, ../sass/screen.scss */
+/* line 144, ../sass/screen.scss */
 #footer {
   height: 60px;
   line-height: 60px;
 }
 
-/* line 142, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 #footer,
 #nav,
 div[role="main"] {
@@ -171,74 +182,74 @@ div[role="main"] {
   width: 100%;
 }
 
-/* line 145, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 #filter_news {
   padding-top: 8px;
 }
 
-/* line 148, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 #form_add_news {
   position: relative;
 }
-/* line 150, ../sass/screen.scss */
+/* line 159, ../sass/screen.scss */
 #form_add_news button, #form_add_news input[type="reset"] {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-/* line 154, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 #form_add_news button {
   clear: both;
   font-weight: bold;
   margin-right: 10px;
 }
 
-/* line 160, ../sass/screen.scss */
+/* line 169, ../sass/screen.scss */
 h1, h2, h3, h4 {
   padding: 10px 0;
 }
 
-/* line 163, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 #img-edit-header {
   margin: 6px 2px -6px 0;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 175, ../sass/screen.scss */
 #img-edit-text {
   margin: 6px 2px -2px 0;
 }
 
-/* line 169, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 legend {
   border: solid 1px #cccccc;
 }
 
-/* line 172, ../sass/screen.scss */
+/* line 181, ../sass/screen.scss */
 nav {
   background-color: #eaebec;
   margin: auto -10px;
   padding: 10px;
 }
 
-/* line 177, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 #main {
   min-height: 100%;
   margin-bottom: -60px;
   padding: 0 10px 60px;
 }
 
-/* line 182, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 [role="form_elements"] {
   padding-right: 20px;
   width: 55%;
 }
-/* line 185, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 [role="form_elements"] input, [role="form_elements"] textarea {
   display: block;
   font-size: 1.1em;
   padding: 4px 6px;
   width: 100%;
 }
-/* line 191, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 [role="form_elements"] textarea {
   font-size: 18px;
   margin-top: 10px;
@@ -246,7 +257,7 @@ nav {
   height: 100%;
 }
 
-/* line 198, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 [role="cities_list"] {
   bottom: 0;
   overflow: auto;
@@ -257,7 +268,7 @@ nav {
   top: 0;
   width: 45%;
 }
-/* line 207, ../sass/screen.scss */
+/* line 216, ../sass/screen.scss */
 [role="cities_list"] label {
   display: inline-block;
   overflow: hidden;
@@ -271,23 +282,23 @@ nav {
   box-shadow: 0 0 4px #999;
 }
 
-/* line 212, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 [role="edit"] {
   opacity: 0.6;
 }
-/* line 214, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 [role="edit"]:hover {
   cursor: pointer;
   opacity: 1;
 }
 
-/* line 219, ../sass/screen.scss */
+/* line 228, ../sass/screen.scss */
 section {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 222, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 #cities_filter {
   height: 140px;
   overflow: auto;
@@ -295,7 +306,7 @@ section {
   margin-top: 10px;
   padding: 0;
 }
-/* line 228, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 #cities_filter label {
   width: 148px;
   display: inline-block;
@@ -309,35 +320,43 @@ section {
   background-color: #fff;
   box-shadow: 0 0 4px #999;
 }
-/* line 232, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 #cities_filter legend {
   background-color: #efefef;
   padding: 6px 10px;
 }
 
-/* line 237, ../sass/screen.scss */
+/* line 246, ../sass/screen.scss */
 #div-cities {
   background-color: #ddd;
   padding: 8px;
 }
 
-/* line 241, ../sass/screen.scss */
+/* line 250, ../sass/screen.scss */
 nav, fieldset, legend div {
   padding: 10px;
 }
 
-/* line 245, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 table td {
   padding: 2px 4px;
 }
-/* line 247, ../sass/screen.scss */
+/* line 256, ../sass/screen.scss */
 table td div {
   height: 19px;
   overflow: hidden;
   padding: 0;
 }
+/* line 266, ../sass/screen.scss */
+table tbody tr td:nth-child(3):hover {
+  background-color: lavender;
+}
+/* line 270, ../sass/screen.scss */
+table tbody tr td:first-child {
+  text-align: right;
+}
 
-/* line 254, ../sass/screen.scss */
+/* line 277, ../sass/screen.scss */
 th {
   background-color: lavender;
   padding: 10px;

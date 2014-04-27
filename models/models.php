@@ -207,7 +207,7 @@ function getNews($news_id=NULL,$limit=false, $filter=false){
     $query = "SELECT `id`,
                       DATE_FORMAT(`datetime`, '%d.%m.%Y') AS 'datetime',
                      `subject`, $sub_text, `cities_id_id`
-                FROM news $where ORDER BY `id` DESC";
+                FROM news $where ORDER BY `datetime` DESC";
     $sth = $connect->prepare($query);
     $sth->execute();
     $news = array();
@@ -339,6 +339,16 @@ function getCitiesSettings(){
     return explode(',',$sth->fetchColumn());
 }
 /**
+ * Получить список городов существующей новости
+ */
+function getNewsCities($news_id){
+    $Db=new Db();
+    $connect=$Db->getConnect();
+    $sth = $connect->prepare("SELECT cities_id_id FROM news WHERE id = $news_id");
+    $sth->execute();
+    return explode(',',$sth->fetchColumn());
+}
+/**
  * Установить фильтр новостей по городам для админа
  */
 function saveAdminNewsFilter($post){
@@ -372,7 +382,7 @@ function storeNews($post){
         (datetime, subject, text, cities_id_id) VALUES
         ( '".date('Y-m-d H:i:s')."', '".
             $post['subject']."', '".
-            $post['news_text'] ."', '". $cities ."' )";
+            nl2br($post['news_text']) ."', '". $cities ."' )";
     $Db=new Db();
     $connect=$Db->getConnect();
     $sth = $connect->prepare($query);
@@ -381,9 +391,20 @@ function storeNews($post){
 /**
  * Сохранить изменения новости
  */
-function saveNews($news_id){
+function saveNews($news_id, $post){
+    if(!$post['city']) return -1;
+    $query = "UPDATE news SET `datetime` = '". date('Y-m-d H:i:s')."'";
+    if($post['subject'])
+        $query.= ", `subject` = '".$post['subject']."'";
+    if($post['text'])
+        $query.= ", `text` = '".nl2br($post['text'])."'";
+    $query.= ", `cities_id_id` = '".implode(',', $post['city'])."' WHERE id = $news_id";
+
     $Db=new Db();
     $connect=$Db->getConnect();
+    $sth = $connect->prepare($query);
+    //echo "<div>$query</div>";die();
+    return $sth->execute();
 }
 /**
  * Удалить новость

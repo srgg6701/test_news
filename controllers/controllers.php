@@ -69,7 +69,10 @@ class adminController{
         }else{
             if($segment!='remove'&&$segment!='save'){ // /add или /[id_новости]
                 $this->content->form_fields = $view->formFields();
-                $this->content->cities_filter = $view->citiesList(getCities());
+                if($segment=='add') // будем получать обычный список городов
+                    $this->content->cities_filter = $view->citiesList(getCities());
+                else // будем получать список городов с отметками для текущего сообщения ([id_новости])
+                    $this->content->cities_filter = $view->citiesList(getCities(),getNewsCities($address[0]));
             }elseif($address[1]!='filter'){
                 //$this->content->result=
                 $_SESSION['content_result'] = ($segment=='remove') ?
@@ -124,19 +127,23 @@ class adminController{
                                         $_SESSION['content_result'] = "Ошибка - не удалось добавить новость...";
                                     }
                                     if($ok===-1){
-                                        //$this->content->result
-                                        $_SESSION['content_result'] = "Ошибка - вы не отметили ни одного города...";
-                                        $_SESSION['news_subject'] = $_POST['subject'];
-                                        $_SESSION['news_text'] = $_POST['news_text'];
-                                        //var_dump($_SESSION);
-                                        //var_dump($_POST); die();
+                                        $this->makeNotation('news_text');
                                         header("location: ".SITE_ROOT."/admin/add");
                                         die();
                                     }
                                     break;
-                                default:
-                                    if($news_id)
-                                        saveNews($news_id);
+                                default: // изменяли новость:
+                                    if($news_id){
+                                        $ok=saveNews($news_id,$_POST);
+                                        if($ok===-1){ // вероятнее всего, не получили список городов
+                                            $this->makeNotation('text');
+                                            header("location: ".SITE_ROOT."/admin/add/".$news_id);
+                                            die();
+                                        }else{
+                                            header("location: ".SITE_ROOT."/admin/");
+                                            die();
+                                        }
+                                    }
                             }
                         }
                     }
@@ -162,5 +169,12 @@ class adminController{
         }
         // не попадаем сюда, если сохраняли, удаляли новость или настраивали фильтр городов
         require_once ($err)? "views/404.php" : "views/admin/".$included_file.".php";
+    }
+    private function makeNotation($text,$subject = 'subject'){
+        $_SESSION['content_result'] = "Ошибка - вы не отметили ни одного города...";
+        $_SESSION['news_subject'] = $_POST[$subject]; //'subject'
+        $_SESSION['news_text'] = $_POST[$text]; //'news_text'
+        //var_dump($_SESSION);
+        //var_dump($_POST); die();
     }
 }

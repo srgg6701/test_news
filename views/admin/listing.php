@@ -1,12 +1,8 @@
 <?php if(isset($this->content->result)):?>
 <div><?php echo $this->content->result;?></div>
 <?php endif;
-if($_SESSION['content_result']):?>
-    <div class="mess_result"><?php echo $_SESSION['content_result'];
-        unset($_SESSION['content_result']); ?>
-    </div>
-<?php
-endif;?>
+HTML::showMessage();
+?>
 <fieldset>
     <?php HTML::Legend("listing");?>
     <form method="post" enctype="application/x-www-form-urlencoded" id="filter_news" name="filter_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/filter">

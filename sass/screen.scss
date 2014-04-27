@@ -81,6 +81,15 @@ article{
 .marginRight10{
   margin-right: 10px;
 }
+.mess_result{
+  background-color: rgb(255, 255, 118);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 20px;
+  position: fixed;
+  right: 30%;
+  top: 5px;
+}
 .padding10{
   @include padding;
 }
@@ -248,6 +257,20 @@ table{
       height: 19px;
       overflow: hidden;
       padding: 0;
+    }
+  }
+  tbody{
+    tr{
+      td{
+        &:nth-child(3){
+          &:hover{
+            background-color: lavender;
+          }
+        }
+        &:first-child{
+          text-align: right;
+        }
+      }
     }
   }
 }

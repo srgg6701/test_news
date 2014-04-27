@@ -1,9 +1,10 @@
 <?php
 if(!$news=$this->content->single_news):?>
     <h4 class="color-grey">Новость не найдена. Matrix has you, Neo.</h4>
-<?php else:
-    ?>
-    <?php HTML::Legend('both');?>
+<?php
+else:
+    HTML::showMessage();
+    HTML::Legend('both');?>
     <p class="date">Новость от <?php echo $news['date'];?>
         &nbsp; | &nbsp;
         <?php
