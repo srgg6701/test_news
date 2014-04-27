@@ -36,23 +36,24 @@ function getNews($news_id=NULL,$limit=false, $filter=false){
     $query = "SELECT `id`,
                       DATE_FORMAT(`datetime`, '%d.%m.%Y') AS 'datetime',
                      `subject`, $sub_text, `cities_id_id`
-                FROM news $where ORDER BY `datetime` DESC";
+                FROM news $where ORDER BY `id` DESC";
     $sth = $connect->prepare($query);
     $sth->execute();
     $news = array();
-    foreach($sth->fetchAll() as $i => $data){
+    foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $i => $data){
         $newsid = $data['id'];
-        $news[$newsid]=array();
-        array_push($news[$newsid],$data['datetime'],$data['subject'],$data['text'],$data['cities_id_id']);
+        unset($data['id']);
+        $news[$newsid]=$data;
     }
+    //echo "\n*******************\n";var_dump("<pre>",$news,"<pre/>");die();
     //
     if($news_id){
         if(array_key_exists($news_id, $news)) {
             return array('id'       =>$news_id,
-                         'date'     =>$news[$news_id][0],
-                         'subject'  =>$news[$news_id][1],
-                         'text'     =>$news[$news_id][2],
-                         'cities'   =>$news[$news_id][3],
+                         'date'     =>$news[$news_id]['datetime'],
+                         'subject'  =>$news[$news_id]['subject'],
+                         'text'     =>$news[$news_id]['text'],
+                         'cities'   =>$news[$news_id]['cities_id_id'],
                     );// array_unshift($news[$news_id],$news_id); ?!!!
         }else{
             return false;
@@ -67,7 +68,7 @@ function getNewsByCity($city_id){
     $city_news=array();
     $city_id = (string)$city_id;
     foreach(getNews(NULL,300) as $i=>$news){
-        if(in_array($city_id, explode(',', $news[3])))
+        if(in_array($city_id, explode(',', $news['cities_id_id'])))
             $city_news[$i]=$news;
     }
     return $city_news;
@@ -143,7 +144,7 @@ function saveNews($news_id, $post){
     if($post['text'])
         $query.= ", `text` = '".nl2br($post['text'])."'";
     $query.= ", `cities_id_id` = '".implode(',', $post['city'])."' WHERE id = $news_id";
-
+    echo "<div>$query</div>"; die();
     $Db=new Db();
     $connect=$Db->getConnect();
     $sth = $connect->prepare($query);

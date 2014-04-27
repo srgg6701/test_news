@@ -36,10 +36,10 @@ HTML::showMessage();
             ?>
             <tr>
                 <td><?php echo $news_id;?></td>
-                <td><?php echo $news[0];?></td>
-                <td><div><a href="<?php echo SITE_ROOT."/admin/".$news_id;?>"><?php echo $news[1];?></a></div></td>
+                <td><?php echo $news['datetime'];?></td>
+                <td><div><a href="<?php echo SITE_ROOT."/admin/".$news_id;?>"><?php echo $news['subject'];?></a></div></td>
                 <td><div><?php
-                    echo $news[2];
+                    echo $news['text'];
                         ?></div></td>
             </tr>
             <?php
