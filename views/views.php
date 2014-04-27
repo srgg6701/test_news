@@ -23,18 +23,24 @@ class View{
         </div>';
     }
 
+    public static function createCitiesList($cities){
+        $cList='';
+        foreach($cities as $city_id => $city):
+            $cList.='
+                <label>
+                    <input type="checkbox" value="' . $city_id . '"  name="city['.$city_id.']" checked>
+                    '.$city. '
+                </label>';
+        endforeach;
+        return $cList;
+    }
+
     public static function citiesList($cities){
         $cList = '<div role="cities_list" class="floatLeft">
             <label class="width100">
                 <input type="checkbox" id="all_boxes"> Все города</label>
                 <div role="boxes_box">';
-        foreach($cities as $city_id => $city):
-            $cList.='
-                <label>
-                    <input type="checkbox" value="' . $city_id . '" checked>
-                    '.$city. '
-                </label>';
-        endforeach;
+        $cList.= self::createCitiesList($cities);
         $cList.='
             </div>
         </div>';

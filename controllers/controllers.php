@@ -59,20 +59,21 @@ class adminController{
     function __construct($address = array(NULL)){
         $this->content = new stdClass();
         $err = false;
+        $this->content->cities = getCities();
+        $this->content->news = getNews();
+        $view = new View();
         // просмотр всех новостей
         if(!$segment=$address[0]){ // /admin
-            $this->content->cities = getCities();
-            $this->content->news = getNews();
             $included_file='listing';
+            $this->content->cities=$view->createCitiesList(getCities());
         }else{
             if($segment!='remove'&&$segment!='save'){ // /add или /[id_новости]
-                /**
-                 Если будем просматривать (и, возможно, здесь же и редактировать)
-                 новость или загружаем раздел создания новости, нам нужны общие
-                 блоки, формируемые во View: */
-                $view = new View();
                 $this->content->form_fields = $view->formFields();
                 $this->content->cities_filter = $view->citiesList(getCities());
+            }else{
+                $this->content->result= ($segment=='remove') ?
+                    "Новость удалена. Выпилена с предельной жестокостью..."
+                    : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
             }
             /**
             Если не загружаем страницу добавления новости */
@@ -89,6 +90,7 @@ class adminController{
                 //$removing = false;
                 // Если удаляем или сохраняем новость
                 if($segment=='remove'||$segment=='save'){
+                    // извлечь id новости
                     $news_id = $address[1]; // id новости
                     /**
                     удалить новость
@@ -107,16 +109,13 @@ class adminController{
                     $included_file = "single_news";
                 }
                 // Т.к. id новости необходим (см.выше), его отсутствие означает 404
-                if($news_id != 'new' && !$this->content->single_news = getNews($news_id))
-                    $err='news_id';
-                /**
-                 id новости найден, всё ОК - сформируем сообщение об удалении
-                 или сохранении новости */
-                elseif($segment=='remove'||$segment=='save'){
-                    $this->content->result= ($segment=='remove') ?
-                        "Новость удалена. Хотя... чёрт её знает..."
-                        : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
+                if($address[1]!='new'&&$address[1]!='filter'){
+                    if(!$this->content->single_news = getNews($news_id))
+                        $err='news_id';
+                    else
+                        $this->content->result="Ошибка: не найден id новости";
                 }
+
             }else{ // если сегмент == add, используем его имя в качестве подключаемого файла
                 $included_file = $segment;
             }

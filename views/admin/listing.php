@@ -3,23 +3,19 @@
 <?php endif;?>
 <fieldset>
     <?php HTML::Legend("listing");?>
-    <div>Фильтр городов:
-        <a href="javascript:void(0)" id="cFilter">свернуть/развернуть</a>
-        &nbsp;
-        <label><input type="checkbox" id="all_boxes"> все города</label>
-        <button type="submit" class="btn_top_right" id="btn-cities-filter">Применить фильтр</button>
-    </div>
-    <fieldset id="cities_filter">
-        <div id="div-cities" role="boxes_box">
-    <?php foreach($this->content->cities as $city_id => $city):
-    ?>
-        <label>
-            <input type="checkbox" value="<?php echo $city_id;?>" checked>
-            <?php echo $city;?>
-        </label>
-    <?php endforeach;?>
+    <form method="post" enctype="application/x-www-form-urlencoded" id="filter_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/filter">
+        <div>Фильтр городов:
+            <a href="javascript:void(0)" id="cFilter">свернуть/развернуть</a>
+            &nbsp;
+            <label><input type="checkbox" id="all_boxes"> все города</label>
+            <button type="submit" class="btn_top_right" id="btn-cities-filter">Применить фильтр</button>
         </div>
-    </fieldset>
+        <fieldset id="cities_filter">
+            <div id="div-cities" role="boxes_box">
+            <?php echo $this->content->cities; ?>
+            </div>
+        </fieldset>
+    </form>
     <?php
     if(!$this-> content->news):?>
         <br>

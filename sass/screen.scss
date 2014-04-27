@@ -107,7 +107,7 @@ html, body{
 }
 .btn_top_right{
   float: right;
-  margin: -2px 19px auto;
+  margin: -8px 19px auto;
   padding: 4px 10px;
 }
 button, input[type="submit"], input[type="reset"]{
@@ -142,6 +142,9 @@ div[role="main"]
 {
   @include common_space;
 }
+#filter_news{
+  padding-top: 8px;
+}
 #form_add_news{
   position: relative;
   button, input[type="reset"]{
@@ -159,10 +162,6 @@ h1, h2, h3, h4{
 }
 #img-edit-header{
   margin: 6px 2px -6px 0;
-  /*&.editing{
-    float: left;
-    margin-bottom: -28px;
-  }*/
 }
 #img-edit-text{
   margin: 6px 2px -2px 0;

@@ -9,7 +9,7 @@ if(!$news=$this->content->single_news):?>
         <?php
         $link_all_news='<a href="' . SITE_ROOT . '/admin">Все новости</a>';
         echo $link_all_news;?></p>
-<form method="post" enctype="text/plain" id="form_edit_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/<?php echo $news['id']?>">
+<form method="post" enctype="application/x-www-form-urlencoded" id="form_edit_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/<?php echo $news['id']?>">
     <article class="admin clearfix">
         <div class="floatLeft" role="form_elements">
             <h4><img id="img-edit-header" role="edit" src="<?php echo SITE_ROOT;?>/_sources/edit.png">
