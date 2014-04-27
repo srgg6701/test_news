@@ -115,7 +115,7 @@ $(function(){
             location.href=$(this).attr('data-location');
         }
     })
-    $('.mess_result:visible').fadeOut(5000).on('click', function(){
+    $('.mess_result:visible').fadeOut(8000).on('click', function(){
         $(this).remove();
     });
     //

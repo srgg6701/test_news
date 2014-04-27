@@ -100,14 +100,10 @@ class adminController{
                     или сохранить изменения в существующей
                     или сохранить новую ($news_id = new)
                     */
-                    // будем загружать стр. со списком всех новостей
-                    //$included_file = 'listing';
-
-                    //echo "<h2>".$segment.'/'.$news_id."</h2>";
-                    //var_dump("<pre>",$_POST,"<pre/>");
-
                     if($segment=='remove'){
                         removeNews($news_id);
+                        header("location: ".SITE_ROOT."/admin/");
+                        die();
                     }else{
                         /**
                         $address[1]:
@@ -123,7 +119,6 @@ class adminController{
                                 case 'new':
                                     $ok=false;
                                     if(!$ok=storeNews($_POST)){
-                                        //$this->content->result
                                         $_SESSION['content_result'] = "Ошибка - не удалось добавить новость...";
                                     }
                                     if($ok===-1){
@@ -174,7 +169,5 @@ class adminController{
         $_SESSION['content_result'] = "Ошибка - вы не отметили ни одного города...";
         $_SESSION['news_subject'] = $_POST[$subject]; //'subject'
         $_SESSION['news_text'] = $_POST[$text]; //'news_text'
-        //var_dump($_SESSION);
-        //var_dump($_POST); die();
     }
 }

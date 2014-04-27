@@ -402,13 +402,16 @@ function saveNews($news_id, $post){
 
     $Db=new Db();
     $connect=$Db->getConnect();
-    $sth = $connect->prepare($query);
-    //echo "<div>$query</div>";die();
+    $sth = $connect->prepare($query); //echo "<div>$query</div>";die();
     return $sth->execute();
 }
 /**
  * Удалить новость
  */
 function removeNews($news_id){
-
+    $query = "DELETE FROM news WHERE id = $news_id";
+    $Db=new Db();
+    $connect=$Db->getConnect();
+    $sth = $connect->prepare($query); //echo "<div>$query</div>";die();
+    return $sth->execute();
 }
