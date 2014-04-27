@@ -36,9 +36,8 @@ class userController{
             * user не может смотреть новости, не выбрав регион. Sorry, Dude...
             * и, кстати, нельзя смотреть новости несуществующего города... Или можно? :)*/
             if(!$city_id||!$this->content->city = getCities($city_id)){
-                //echo "<div>NO city_id OR city</div>"; die();
                 $err ='city';
-            }else{ //echo "<div>city: ".$this->content->city."</div>";
+            }else{
                 $this->content->city_id = $city_id;
                 /**
                  * Получить либо одну новость по её id,
@@ -46,7 +45,7 @@ class userController{
                 if($news_id) { // получили семент с id новости
                     $this->content->single_news = getNews($news_id);
                     $view_name = "single_news";
-                }else{ //echo "<div>getCities:</div>"; var_dump("<pre>",getCities($city_id),"<pre/>");
+                }else{
                     $this->content->feed = getNewsByCity($city_id);
                 }
             }
@@ -77,7 +76,7 @@ class adminController{
                 //$this->content->result=
                 $_SESSION['content_result'] = ($segment=='remove') ?
                     "Новость удалена. Выпилена с предельной жестокостью..."
-                    : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
+                    : "Новость сохранена!";
             }
             /**
             Если не загружаем страницу добавления новости */

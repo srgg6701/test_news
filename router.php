@@ -40,5 +40,4 @@ if(!class_exists($controller_name)){
     // создать экземпляр активного контроллера и передать текущий action
     if(!$_POST) ob_start();
     $controller = new $controller_name($segments); 
-	//var_dump("<pre>",$controller,"<pre/>");
 }
