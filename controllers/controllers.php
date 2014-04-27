@@ -95,11 +95,12 @@ class adminController{
                     или сохранить изменения в существующей
                     или сохранить новую ($news_id = new)
                     */
-                    die($segment.'/'.$news_id);
                     // будем загружать стр. со списком всех новостей
                     $included_file = 'listing';
-                    /*if($segment=='save'){ // Если сохраняем новость
-                        var_dump("<pre>",$_POST,"<pre/>");*/
+
+                    echo "<h2>".$segment.'/'.$news_id."</h2>";
+                    var_dump("<pre>",$_POST,"<pre/>");
+
                 }else{ // /[id_новости] - просмотр
                     $news_id = $segment;
                     // будем загружать стр. с просмотром индивидуальной новости

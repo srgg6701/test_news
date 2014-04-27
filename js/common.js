@@ -39,73 +39,56 @@ $(function(){
         event.target.title = title;
     }).on('click', function(){
         var action_button = event.target; //console.dir(action_button);
+        $(action_button).hide();
         if(action_button.id=='img-edit-header'){
             var headerSpan = $(action_button).next('span');
-            if($(headerSpan).has('input').size()){
-                $(action_button).removeClass('editing');
-                var headerField = $('input',$(this).next());
-                $(headerSpan).text($(headerField).val());
-                $(headerField).remove();
-                $('#remove-header-input').remove();
-            }else{
-                var source_text = $(headerSpan).text();
-                // модифицировать кнопку редактирования
-                $(action_button).addClass('editing');
-                // создать поле для заголовка
-                var inputHeader = $('<input/>',{
-                    name:"subject",
-                    type:"text"
-                }).css({
-                        marginLeft: '-2px',
-                        paddingLeft: '29px',
-                        paddingRight: '30px',
-                        placeholder:"Заголовок новости"
-                    }).val(source_text);
-                // создать кнопку отмены
-                var closeIt = $('<span/>',{
-                    id:'remove-header-input'
-                }).css({
-                    backgroundColor: 'lightcoral',
-                    borderRadius: '10px',
-                    color: 'white',
-                    cursor: 'pointer',
-                    float: 'right',
-                    marginTop: '-27px',
-                    marginRight: '8px',
-                    height: '21px',
-                    textAlign: 'center',
-                    width: '21px'
-                }).text('x');
-                $(headerSpan).attr('data-text',source_text).html(inputHeader)
-                    .after(closeIt);
-            }
+            var source_text = $(headerSpan).text();
+            // создать поле для заголовка
+            var inputHeader = $('<input/>',{
+                name:"subject",
+                type:"text"
+            }).css({
+                    paddingRight: '30px',
+                    placeholder:"Заголовок новости"
+                }).val(source_text);
+            // создать кнопку отмены
+            var closeIt = $('<span/>',{
+                id:'remove-header-input'
+            }).css({
+                backgroundColor: 'lightcoral',
+                borderRadius: '10px',
+                color: 'white',
+                cursor: 'pointer',
+                float: 'right',
+                marginTop: '-27px',
+                marginRight: '8px',
+                height: '21px',
+                textAlign: 'center',
+                width: '21px'
+            }).text('x');
+            $(headerSpan).attr('data-text',source_text)
+                         .html(inputHeader)
+                         .after(closeIt);
         }else if(action_button.id=='img-edit-text'){
             var textDiv = $('#news-container');
-            var textArea = $('textarea[name="text"]');
-            if($(textArea).size()){
-                $(textDiv).html($(textArea).val()).show();
-                $(textArea).remove();
-                $('#remove-textarea').remove();
-            }else{
-                var source_text = $(textDiv).text();
-                // создать поле для заголовка
-                var textArea = $('<textarea/>',{
-                    name:"text"
-                }).css({
-                        placeholder:"Текст новости"
-                    }).val(source_text);
-                // создать кнопку отмены
-                var closeIt = $('<span/>',{
-                    id:'remove-textarea',
-                    class:'close'
-                }).css({
-                    marginTop:'10px',
-                    marginRight: '8px'
-                }).text('x');
+            var source_text = $(textDiv).text();
+            // создать поле для заголовка
+            var textArea = $('<textarea/>',{
+                name:"text"
+            }).css({
+                    placeholder:"Текст новости"
+                }).val(source_text);
+            // создать кнопку отмены
+            var closeIt = $('<span/>',{
+                id:'remove-textarea',
+                class:'close'
+            }).css({
+                marginBottom: '6px',
+                marginRight: '8px'
+            }).text('x');
 
-                $(textDiv).hide().before(textArea);
-                $(action_button).after(closeIt);
-            }
+            $(textDiv).hide().before(textArea);
+            $(action_button).after(closeIt);
         }
         // отменить редактирование заголовка
         $('#remove-header-input').on('click', function(){
@@ -113,15 +96,15 @@ $(function(){
             var headerContainer = $(this).prev();
             $(headerContainer).html($(headerContainer).attr('data-text'));
             $(this).remove();
-            $(action_button).removeClass('editing');
+            $(action_button).show();
         });
         // отменить редактирование текста
         $('#remove-textarea').on('click', function(){
-            //console.dir(this);
             var textArea = $('textarea[name="text"]');
             $('#news-container').show();
             $(textArea).remove();
             $(this).remove();
+            $(action_button).show();
         });
     });
     // удаление новости

@@ -195,11 +195,10 @@ h1, h2, h3, h4 {
 /* line 160, ../sass/screen.scss */
 #img-edit-header {
   margin: 6px 2px -6px 0;
-}
-/* line 162, ../sass/screen.scss */
-#img-edit-header.editing {
-  float: left;
-  margin-bottom: -28px;
+  /*&.editing{
+    float: left;
+    margin-bottom: -28px;
+  }*/
 }
 
 /* line 167, ../sass/screen.scss */
