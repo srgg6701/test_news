@@ -34,6 +34,15 @@
   display: inline-block;
   @include padding;
 }
+article{
+  border: solid 3px #eaebec;
+  line-height: 1.25em;
+  padding: 10px;
+  margin-top: 10px;
+  .date{
+    margin: 0;
+  }
+}
 .bg-lightskyblue{
   background-color: lightskyblue;
 }
@@ -52,10 +61,23 @@
 .floatLeft{
   float: left;
 }
+.link_all_news{
+  background-color: rgb(183, 224, 250);
+  display: inline-block;
+  margin: 4px 0 20px;
+  padding: 10px;
+  text-decoration: none;
+}
 .marginRight10{
   margin-right: 10px;
 }
 .padding10{
+  @include padding;
+}
+.singleH4{
+  background-color: lightgoldenrodyellow;
+  font-size: 1.2em;
+  margin: 18px 0px -6px;
   @include padding;
 }
 .width100{
@@ -72,6 +94,11 @@ html, body{
   box-sizing:border-box;
   margin: 0;
   padding: 0;
+}
+#btn-cities-filter{
+  float: right;
+  margin: -2px 19px auto;
+  padding: 4px 10px;
 }
 #container {
   height: 100%;
@@ -190,5 +217,9 @@ table{
       padding: 0;
     }
   }
+}
+th{
+  background-color: lavender;
+  @include padding;
 }
 

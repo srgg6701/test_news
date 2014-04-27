@@ -88,8 +88,9 @@ class adminController{
                         $segment = "single_news";
                 }
             }else{
-                $this->content->cities = getCities();
-                //$segment='listing';
+                $view = new View();
+                $this->content->form_fields = $view->formFields();
+                $this->content->cities_filter = $view->citiesList(getCities());
             }
         }
         require_once ($err)? "views/404.php" : "views/admin/".$segment.".php";

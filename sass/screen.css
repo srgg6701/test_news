@@ -1,6 +1,6 @@
 /*
 Syntax error: File to import not found or unreadable: compass.
-              Load path: C:/PHPDevServer/data/localweb/projects/test/news/sass
+              Load path: C:/WebServers/home/localhost/www/news/sass
         on line 1 of screen.scss
 
 1: @import "compass";
@@ -49,4 +49,4 @@ C:/Ruby200-x64/bin/scss:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: compass.\A               Load path: C:/PHPDevServer/data/localweb/projects/test/news/sass\A         on line 1 of screen.scss\A \A 1: @import \"compass\";\A 2: /* mixins */\A 3: @mixin border($style:solid, $width:1px, $color:#ccc){\A 4:   border: $style $width $color;\A 5: }\A 6: @mixin common_space{"; }
+  content: "Syntax error: File to import not found or unreadable: compass.\A               Load path: C:/WebServers/home/localhost/www/news/sass\A         on line 1 of screen.scss\A \A 1: @import \"compass\";\A 2: /* mixins */\A 3: @mixin border($style:solid, $width:1px, $color:#ccc){\A 4:   border: $style $width $color;\A 5: }\A 6: @mixin common_space{"; }

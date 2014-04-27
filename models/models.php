@@ -313,6 +313,6 @@ function getNewsByCity($city_id){
     foreach(getNews(NULL,300) as $i=>$news){
         if(in_array($city_id, explode(',', $news[3])))
             $city_news[$i]=$news;
-    } //echo "<hr>"; var_dump("<pre>",$city_news,"<pre/>");
+    }
     return $city_news;
 }

@@ -1,6 +1,6 @@
 <?php
 class HTML{
-    static function Legend($order="listing"){
+    public static function Legend($order="listing"){
         $news = "Новости по городам";
         $add = "Добавить новость";
         if($order=="listing"){
@@ -19,7 +19,7 @@ class HTML{
         </legend><?php
     }
 
-    static function Menu(){
+    public static function Menu(){
         ?><a href="<?php echo SITE_ROOT; ?>">Главная</a><?php
     }
 }

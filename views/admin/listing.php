@@ -6,7 +6,9 @@
     <div>Фильтр городов:
         <a href="javascript:void(0)" id="cFilter">свернуть/развернуть</a>
         &nbsp;
-        <label><input type="checkbox" id="all_boxes"> все города</label></div>
+        <label><input type="checkbox" id="all_boxes"> все города</label>
+        <button type="submit" id="btn-cities-filter">Применить фильтр</button>
+    </div>
     <fieldset id="cities_filter">
         <div id="div-cities" role="boxes_box">
     <?php foreach($this->content->cities as $city_id => $city):

@@ -6,18 +6,38 @@ class View{
     // ...для новостей
     private $newsList="";
 
-    function buildCitiesList($cities){
+    public function buildCitiesList($cities){
         foreach($cities as $i=>$city){
             $this->citiesList.= "<option value='$i'>$city</option>";
         }
     }
 
-    function getCitiesList(){
+    public function getCitiesList(){
         return $this->citiesList;
     }
 
-    //function listing(){}
+    public static function formFields(){
+        return '<div role="form_elements" class="floatLeft">
+            <input name="subject" type="text" placeholder="Заголовок новости">
+            <textarea name="news_text" placeholder="Текст новости..."></textarea>
+        </div>';
+    }
 
-    //function news(){}
-
+    public static function citiesList($cities){
+        $cList = '<div role="cities_list" class="floatLeft">
+            <label class="width100">
+                <input type="checkbox" id="all_boxes"> Все города</label>
+                <div role="boxes_box">';
+        foreach($cities as $city_id => $city):
+            $cList.='
+                <label>
+                    <input type="checkbox" value="' . $city_id . '" checked>
+                    '.$city. '
+                </label>';
+        endforeach;
+        $cList.='
+            </div>
+        </div>';
+        return $cList;
+    }
 }
