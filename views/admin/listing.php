@@ -3,7 +3,7 @@
 <?php endif;?>
 <fieldset>
     <?php HTML::Legend("listing");?>
-    <form method="post" enctype="application/x-www-form-urlencoded" id="filter_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/filter">
+    <form method="post" enctype="application/x-www-form-urlencoded" id="filter_news" name="filter_news" class="clearfix" action="<?php echo SITE_ROOT;?>/admin/save/filter">
         <div>Фильтр городов:
             <a href="javascript:void(0)" id="cFilter">свернуть/развернуть</a>
             &nbsp;

@@ -23,13 +23,16 @@ class View{
         </div>';
     }
 
-    public static function createCitiesList($cities){
+    public static function createCitiesList($cities,$filter=NULL){
+        $apply_filter = ($filter&&!empty($filter))? true:false;
         $cList='';
         foreach($cities as $city_id => $city):
             $cList.='
                 <label>
-                    <input type="checkbox" value="' . $city_id . '"  name="city['.$city_id.']" checked>
-                    '.$city. '
+                    <input type="checkbox" value="' . $city_id . '"  name="city['.$city_id.']"';
+            if($apply_filter && in_array($city_id, $filter))
+                $cList.=' checked';
+            $cList.='>'.$city. '
                 </label>';
         endforeach;
         return $cList;

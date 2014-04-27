@@ -65,12 +65,12 @@ class adminController{
         // просмотр всех новостей
         if(!$segment=$address[0]){ // /admin
             $included_file='listing';
-            $this->content->cities=$view->createCitiesList(getCities());
+            $this->content->cities=$view->createCitiesList(getCities(),getCitiesSettings());
         }else{
             if($segment!='remove'&&$segment!='save'){ // /add или /[id_новости]
                 $this->content->form_fields = $view->formFields();
                 $this->content->cities_filter = $view->citiesList(getCities());
-            }else{
+            }elseif($address[1]!='filter'){
                 $this->content->result= ($segment=='remove') ?
                     "Новость удалена. Выпилена с предельной жестокостью..."
                     : "Новость сохранена!"; //header("location: ".SITE_ROOT."/admin"); //die();
@@ -87,7 +87,6 @@ class adminController{
                   - удаляем (/remove/id_новости)
                   - сохраняем (/save/id_новости)
                 если id новости отсутствует, - 404*/
-                //$removing = false;
                 // Если удаляем или сохраняем новость
                 if($segment=='remove'||$segment=='save'){
                     // извлечь id новости
@@ -98,11 +97,37 @@ class adminController{
                     или сохранить новую ($news_id = new)
                     */
                     // будем загружать стр. со списком всех новостей
-                    $included_file = 'listing';
+                    //$included_file = 'listing';
 
-                    echo "<h2>".$segment.'/'.$news_id."</h2>";
-                    var_dump("<pre>",$_POST,"<pre/>");
+                    //echo "<h2>".$segment.'/'.$news_id."</h2>";
+                    //var_dump("<pre>",$_POST,"<pre/>");
 
+                    if($segment=='remove'){
+                        removeNews($news_id);
+                    }else{
+                        /**
+                        $address[1]:
+                        news_id    - сохраняли изменения существующей новости
+                        filter     - сохраняли настройки фильра городов
+                        new        - сохраняли новую новость
+                         */
+                        if($segment=='save'){
+                            switch($address[1]){
+                                case 'filter':
+                                    $this->citiesFilter=saveAdminNewsFilter($_POST);
+                                    break;
+                                case 'new':
+                                    storeNews($_POST);
+                                    break;
+                                default:
+                                    if($news_id)
+                                        saveNews($news_id);
+                            }
+                        }
+                    }
+                    // потому что хотим URL без лишних сегментов.
+                    header("location: ".SITE_ROOT."/admin");
+                    die();
                 }else{ // /[id_новости] - просмотр
                     $news_id = $segment;
                     // будем загружать стр. с просмотром индивидуальной новости

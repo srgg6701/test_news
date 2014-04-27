@@ -5,7 +5,7 @@
 function getCities($city_id=NULL){
     $Db=new Db();
     $connect=$Db->getConnect();
-    $sth = $connect->prepare("SELECT `id`, `city_name` FROM cities");
+    $sth = $connect->prepare("SELECT `id`, `city_name` FROM cities ORDER BY `id`");
     $sth->execute();
     $cities = array();
     foreach($sth->fetchAll() as $i => $data){
@@ -198,7 +198,11 @@ function getNews($news_id=NULL,$limit=false){
         if (!$limit) $limit = 120;
         $sub_text = "LEFT (`text`, ".$limit.") AS 'text'";
     }
-    $sth = $connect->prepare("SELECT `id`, DATE_FORMAT(`datetime`, '%d.%m.%Y') AS 'datetime', `subject`, $sub_text, `cities_id_id` FROM news");
+    $query = "SELECT `id`,
+                      DATE_FORMAT(`datetime`, '%d.%m.%Y') AS 'datetime',
+                     `subject`, $sub_text, `cities_id_id`
+                FROM news ORDER BY `id` DESC";
+    $sth = $connect->prepare($query);
     $sth->execute();
     $news = array();
     foreach($sth->fetchAll() as $i => $data){
@@ -306,7 +310,9 @@ FB Newswire будет доступно как на странице в Facebook
     }
     else return $news;
 }
-
+/**
+ *
+ */
 function getNewsByCity($city_id){
     $city_news=array();
     $city_id = (string)$city_id;
@@ -315,4 +321,59 @@ function getNewsByCity($city_id){
             $city_news[$i]=$news;
     }
     return $city_news;
+}
+/**
+ * Извлечь настройки городов админа
+ * */
+function getCitiesSettings(){
+    $Db=new Db();
+    $connect=$Db->getConnect();
+    $sth = $connect->prepare("SELECT filters FROM settings");
+    $sth->execute();
+    return explode(',',$sth->fetchColumn());
+}
+/**
+ * Установить фильтр новостей по городам для админа
+ */
+function saveAdminNewsFilter($post){
+    $Db=new Db();
+    $connect=$Db->getConnect();
+
+    $cities_filter = implode(',',$post['city']);
+
+    $checkFilters = function($connect){
+        $query = "SELECT count(*) FROM settings";
+        $sth = $connect->prepare($query);
+        $sth->execute();
+        return $sth->fetchColumn();
+    };
+    $result = $checkFilters($connect);
+    //var_dump($result); die($result==0);
+    // ещё ничего не добавляли:
+    if($result==0){
+        $query = "INSERT INTO settings ( filters ) VALUES ('". $cities_filter ."')";
+    }else{
+        $query = "UPDATE settings SET filters = '" . $cities_filter ."'";
+    }
+    $sth = $connect->prepare($query);
+    $sth->execute();
+    return $post['city']; //var_dump("<pre>",$result,"<pre/>"); die();
+}
+/**
+ * Сохранить новую новость
+ */
+function storeNews($post){
+
+}
+/**
+ * Сохранить изменения новости
+ */
+function saveNews($news_id){
+
+}
+/**
+ * Удалить новость
+ */
+function removeNews($news_id){
+
 }
