@@ -45,7 +45,6 @@ function getNews($news_id=NULL,$limit=false, $filter=false){
         unset($data['id']);
         $news[$newsid]=$data;
     }
-    //echo "\n*******************\n";var_dump("<pre>",$news,"<pre/>");die();
     //
     if($news_id){
         if(array_key_exists($news_id, $news)) {
@@ -144,7 +143,6 @@ function saveNews($news_id, $post){
     if($post['text'])
         $query.= ", `text` = '".nl2br($post['text'])."'";
     $query.= ", `cities_id_id` = '".implode(',', $post['city'])."' WHERE id = $news_id";
-    echo "<div>$query</div>"; die();
     $Db=new Db();
     $connect=$Db->getConnect();
     $sth = $connect->prepare($query);
