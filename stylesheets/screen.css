@@ -23,39 +23,47 @@ article {
 article .date {
   margin: 0;
 }
+/* line 45, ../sass/screen.scss */
+article.admin {
+  margin-bottom: 10px;
+}
+/* line 47, ../sass/screen.scss */
+article.admin h4 {
+  margin-top: -8px;
+}
 
-/* line 46, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 .bg-lightskyblue {
   background-color: lightskyblue;
 }
 
-/* line 49, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 .color-grey {
   color: grey;
 }
 
-/* line 52, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 .color-red {
   color: red;
 }
 
-/* line 55, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 .date {
   margin: 10px 0 -2px 0;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 61, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 .floatLeft {
   float: left;
 }
 
-/* line 64, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 .link_all_news {
   background-color: #b7e0fa;
   display: inline-block;
@@ -64,17 +72,17 @@ article .date {
   text-decoration: none;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 .marginRight10 {
   margin-right: 10px;
 }
 
-/* line 74, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 .padding10 {
   padding: 10px;
 }
 
-/* line 77, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .singleH4 {
   background-color: lightgoldenrodyellow;
   font-size: 1.2em;
@@ -82,13 +90,13 @@ article .date {
   padding: 10px;
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .width100 {
   width: 100% !important;
 }
 
 /* styles */
-/* line 87, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 html, body {
   height: 100%;
   font-family: Arial, sans-serif;
@@ -96,42 +104,47 @@ html, body {
   padding: 0;
 }
 
-/* line 93, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* line 98, ../sass/screen.scss */
-#btn-cities-filter {
+/* line 104, ../sass/screen.scss */
+.btn_top_right {
   float: right;
   margin: -2px 19px auto;
   padding: 4px 10px;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
+button, input[type="submit"], input[type="reset"] {
+  padding: 10px;
+}
+
+/* line 112, ../sass/screen.scss */
 #container {
   height: 100%;
 }
 
-/* line 106, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 fieldset {
   border: solid 2px #cccccc;
 }
 
-/* line 109, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 footer {
   background-color: #efefef;
 }
 
-/* line 112, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 #footer {
   height: 60px;
   line-height: 60px;
 }
 
-/* line 119, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
 #footer,
 #nav,
 div[role="main"] {
@@ -141,30 +154,30 @@ div[role="main"] {
   width: 100%;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 #form_add_news {
   position: relative;
 }
-/* line 124, ../sass/screen.scss */
+/* line 133, ../sass/screen.scss */
 #form_add_news [role="form_elements"] {
   padding-right: 20px;
   width: 55%;
 }
-/* line 127, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 #form_add_news [role="form_elements"] input, #form_add_news [role="form_elements"] textarea {
   display: block;
   font-size: 1.1em;
   padding: 4px 6px;
   width: 100%;
 }
-/* line 133, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 #form_add_news [role="form_elements"] textarea {
   font-size: 18px;
   margin-top: 10px;
   min-height: 500px;
   height: 100%;
 }
-/* line 140, ../sass/screen.scss */
+/* line 149, ../sass/screen.scss */
 #form_add_news [role="cities_list"] {
   bottom: 0;
   overflow: auto;
@@ -175,7 +188,7 @@ div[role="main"] {
   top: 0;
   width: 45%;
 }
-/* line 149, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 #form_add_news [role="cities_list"] label {
   display: inline-block;
   overflow: hidden;
@@ -188,50 +201,49 @@ div[role="main"] {
   background-color: #fff;
   box-shadow: 0 0 4px #999;
 }
-/* line 154, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 #form_add_news button, #form_add_news input[type="reset"] {
   margin-bottom: 10px;
   margin-top: 10px;
-  padding: 10px;
 }
-/* line 159, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 #form_add_news button {
   clear: both;
   font-weight: bold;
   margin-right: 10px;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 174, ../sass/screen.scss */
 h1, h2, h3, h4 {
   padding: 10px 0;
 }
 
-/* line 169, ../sass/screen.scss */
+/* line 177, ../sass/screen.scss */
 legend {
   border: solid 1px #cccccc;
 }
 
-/* line 172, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 nav {
   background-color: #eaebec;
   margin: auto -10px;
   padding: 10px;
 }
 
-/* line 177, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 #main {
   min-height: 100%;
   margin-bottom: -60px;
   padding: 0 10px 60px;
 }
 
-/* line 182, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 section {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 185, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 #cities_filter {
   height: 140px;
   overflow: auto;
@@ -239,7 +251,7 @@ section {
   margin-top: 10px;
   padding: 0;
 }
-/* line 191, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 #cities_filter label {
   width: 148px;
   display: inline-block;
@@ -253,41 +265,35 @@ section {
   background-color: #fff;
   box-shadow: 0 0 4px #999;
 }
-/* line 195, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 #cities_filter legend {
   background-color: #efefef;
   padding: 6px 10px;
 }
 
-/* line 200, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 #div-cities {
   background-color: #ddd;
   padding: 8px;
 }
 
-/* line 204, ../sass/screen.scss */
+/* line 212, ../sass/screen.scss */
 nav, fieldset, legend div {
   padding: 10px;
 }
 
-/* line 207, ../sass/screen.scss */
-#rem_news {
-  margin: 12px auto;
-  display: inline-block;
-}
-
-/* line 212, ../sass/screen.scss */
+/* line 216, ../sass/screen.scss */
 table td {
   padding: 2px 4px;
 }
-/* line 214, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 table td div {
   height: 19px;
   overflow: hidden;
   padding: 0;
 }
 
-/* line 221, ../sass/screen.scss */
+/* line 225, ../sass/screen.scss */
 th {
   background-color: lavender;
   padding: 10px;

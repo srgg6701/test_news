@@ -42,6 +42,12 @@ article{
   .date{
     margin: 0;
   }
+  &.admin{
+    margin-bottom: 10px;
+    h4{
+      margin-top: -8px;
+    }
+  }
 }
 .bg-lightskyblue{
   background-color: lightskyblue;
@@ -95,10 +101,13 @@ html, body{
   margin: 0;
   padding: 0;
 }
-#btn-cities-filter{
+.btn_top_right{
   float: right;
   margin: -2px 19px auto;
   padding: 4px 10px;
+}
+button, input[type="submit"], input[type="reset"]{
+  @include padding;
 }
 #container {
   height: 100%;
@@ -154,7 +163,6 @@ div[role="main"]
   button, input[type="reset"]{
     margin-bottom: 10px;
     margin-top: 10px;
-    padding: 10px;
   }
   button{
     clear: both;
@@ -203,10 +211,6 @@ section{
   }
 nav, fieldset, legend div{
   @include padding;
-}
-#rem_news{
-  margin: 12px auto;
-  display: inline-block;
 }
 table{
   td{

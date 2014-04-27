@@ -2,12 +2,12 @@
 <div><?php echo $this->content->result;?></div>
 <?php endif;?>
 <fieldset>
-    <?php HTML::Legend();?>
+    <?php HTML::Legend("listing");?>
     <div>Фильтр городов:
         <a href="javascript:void(0)" id="cFilter">свернуть/развернуть</a>
         &nbsp;
         <label><input type="checkbox" id="all_boxes"> все города</label>
-        <button type="submit" id="btn-cities-filter">Применить фильтр</button>
+        <button type="submit" class="btn_top_right" id="btn-cities-filter">Применить фильтр</button>
     </div>
     <fieldset id="cities_filter">
         <div id="div-cities" role="boxes_box">
