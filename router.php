@@ -39,5 +39,5 @@ if(!class_exists($controller_name)){
         $segments[$index-1]   = (isset($location[$index]))? $location[$index]:NULL;
     // создать экземпляр активного контроллера и передать текущий action
     if(!$_POST) ob_start();
-    $controller = new $controller_name($segments); 
+    $controller = new $controller_name($segments);
 }
